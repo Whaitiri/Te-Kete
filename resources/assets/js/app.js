@@ -6,19 +6,16 @@
  */
 
 require('./bootstrap');
+require('./bulma');
+require('./script');
 
 window.Vue = require('vue');
 import Buefy from 'buefy';
 
 Vue.use(Buefy);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-// const app = new Vue({
-//     el: '#app'
-// });
+// Makes the target  ID at 'el' a Vue object
+var app = new Vue({
+  el: '#app',
+  data: {}
+})
