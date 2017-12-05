@@ -29410,11 +29410,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+//navbar dropdown javascript
+
 /***/ }),
 /* 36 */
 /***/ (function(module, exports) {
 
-window.alert("YO");
+$(document).ready(function () {
+	$(".dropdown-trigger").click(function () {
+		$(".dropdown").toggleClass("is-active");
+	});
+});
 
 /***/ }),
 /* 37 */

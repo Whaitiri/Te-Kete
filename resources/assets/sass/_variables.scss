@@ -1,6 +1,11 @@
+//overrides for Bulma
+$primary: #95A591;
+$primary-invert: #000000;
+$primary-white: #e1e5e0;
 
 // Body
-$body-bg: #f5f8fa;
+$body-bg: #687779;
+$body-background-color: #687779;
 
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
@@ -36,3 +41,5 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+//custom Fonts

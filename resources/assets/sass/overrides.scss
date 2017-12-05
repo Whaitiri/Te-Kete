@@ -1,0 +1,33 @@
+//bulma overrides
+
+
+
+.dropdown button {
+	border: 0px;
+}
+
+.dropdown-divider {
+	background-color: black;
+}
+
+.dropdown-item, .dropdown-content, {
+	background-color: $primary;
+	color: black;
+}
+
+.authContainer .card {
+	background-color: $primary-white;
+}
+
+a.dropdown-item:hover {
+	background-color: darken($primary, 10%);
+}
+
+.footer {
+	background-color: $primary;
+	padding: 1rem 1rem 1rem;
+}
+
+$family-sans-serif: "Roboto", sans-serif;
+
+$family-primary: $family-sans-serif;

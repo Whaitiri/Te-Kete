@@ -24,3 +24,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+//navbar dropdown javascript
