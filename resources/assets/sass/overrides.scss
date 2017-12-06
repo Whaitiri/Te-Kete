@@ -1,5 +1,8 @@
 //bulma overrides
 
+.dropdown-trigger {
+	cursor: pointer;
+}
 
 
 .dropdown button {
@@ -19,7 +22,7 @@
 	background-color: $primary-white;
 }
 
-a.dropdown-item:hover {
+a.dropdown-item:hover, .menu-list a:hover{
 	background-color: darken($primary, 10%);
 }
 

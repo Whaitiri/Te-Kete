@@ -16844,6 +16844,10 @@ label.panel-block:hover {
   background: rgba(255, 56, 96, 0.05);
 }
 
+.dropdown-trigger {
+  cursor: pointer;
+}
+
 .dropdown button {
   border: 0px;
 }
@@ -16864,7 +16868,8 @@ label.panel-block:hover {
 }
 
 a.dropdown-item:hover,
-.dropdown .dropdown-menu .has-link a:hover {
+.dropdown .dropdown-menu .has-link a:hover,
+.menu-list a:hover {
   background-color: #7a8e75;
 }
 
@@ -17404,7 +17409,6 @@ a.dropdown-item:hover,
 }
 
 .navLogo {
-  font-family: 'Love Ya Like A Sister', cursive;
   color: black;
 }
 
@@ -17418,5 +17422,12 @@ a.dropdown-item:hover,
 .authContainer {
   margin-top: 100px;
   margin-bottom: 100px;
+}
+
+.side-menu {
+  position: fixed;
+  height: 100vh;
+  width: 200px;
+  background-color: #b0bcad;
 }
 

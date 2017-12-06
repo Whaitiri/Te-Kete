@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Te Kete') }}</title>
+    <title>{{ config('app.name', 'Admin Panel - Te Kete') }}</title>
 
     <!-- Styles -->
 	 <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet">

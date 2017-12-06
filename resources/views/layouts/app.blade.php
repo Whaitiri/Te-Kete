@@ -1,19 +1,11 @@
-@include('layouts.components.htmlHead')
+@include('layouts.components.header')
 <body>
     <div id="app">
-   @include('layouts.components.header')
+   @include('layouts.components.navbar')
       <div class="container">
          @yield('content')
       </div>
 
 
    @include('layouts.components.footer')
-    </div>
-
-
-
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+    

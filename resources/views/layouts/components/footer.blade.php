@@ -1,3 +1,4 @@
+</div>
 <footer class="footer has-shadow">
 		<div class="content has-text-centered">
 			<p>
@@ -6,3 +7,8 @@
 			</p>
 		</div>
 </footer>
+
+<script src="{{ asset('js/app.js') }}"></script>
+
+</body>
+</html>
