@@ -1462,7 +1462,7 @@ a.box:active {
 .button:active,
 .button.is-active {
   border-color: #4a4a4a;
-  color: #363636;
+  color: black;
 }
 
 .button.is-text {
@@ -7929,7 +7929,7 @@ a.navbar-link.is-active {
 .pagination-previous,
 .pagination-next,
 .pagination-link {
-  border-color: #dbdbdb;
+  border-color: none;
   min-width: 2.25em;
 }
 
@@ -8140,7 +8140,7 @@ a.navbar-link.is-active {
 
 .panel-tabs a.is-active {
   border-bottom-color: #4a4a4a;
-  color: #363636;
+  color: black;
 }
 
 .panel-list a {
@@ -8185,7 +8185,7 @@ a.navbar-link.is-active {
 
 .panel-block.is-active {
   border-left-color: #3273dc;
-  color: #363636;
+  color: black;
 }
 
 .panel-block.is-active .panel-icon {
@@ -16844,6 +16844,10 @@ label.panel-block:hover {
   background: rgba(255, 56, 96, 0.05);
 }
 
+a {
+  color: black;
+}
+
 .dropdown-trigger {
   cursor: pointer;
 }
@@ -17424,10 +17428,12 @@ a.dropdown-item:hover,
   margin-bottom: 100px;
 }
 
-.side-menu {
-  position: fixed;
-  height: 100vh;
-  width: 200px;
+.sideMenu {
   background-color: #b0bcad;
+  height: 100vh;
+}
+
+.adminTable {
+  width: 100%;
 }
 

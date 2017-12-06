@@ -17,5 +17,8 @@ Vue.use(Buefy);
 // Makes the target  ID at 'el' a Vue object
 var app = new Vue({
   el: '#app',
-  data: {}
+  data: {
+     auto_password: false, // disables password field if auto_generate is enabled
+     password_options: 'keep'
+ }
 })

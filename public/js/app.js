@@ -1052,7 +1052,10 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
 // Makes the target  ID at 'el' a Vue object
 var app = new Vue({
   el: '#app',
-  data: {}
+  data: {
+    auto_password: false, // disables password field if auto_generate is enabled
+    password_options: 'keep'
+  }
 });
 
 /***/ }),
