@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::prefix('admin')->middleware('role:superadministrator|administrator|editor|author|contributor')->group(function () {
 	Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
 	Route::resource('/users', 'UserController');
+	Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

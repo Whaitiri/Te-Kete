@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Permission;
+use Session;
+use DB;
 
 class PermissionController extends Controller
 {
@@ -13,8 +16,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission:all();
-        return view('admin.permissions.index')->withPermission($permissions);
+        $permissions = Permission::all();
+        return view('admin.permissions.index')->withPermissions($permissions);
     }
 
     /**
@@ -35,7 +38,47 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->permission_type == 'basic') {
+           $this->validate($request, [
+             'display_name' => 'required|max:255',
+             'name' => 'required|max:255|alphadash|unique:permissions,name',
+             'description' => 'sometimes|max:255',
+          ]);
+
+          $permission = new Permission();
+          $permission->name = $request->name;
+          $permission->display_name = $request->display_name;
+          $permission->description = $request->description;
+          $permission->save();
+
+          Session::flash('success', 'Permission has been successfully added');
+          return redirect()->route('admin.permissions.show, $id');
+
+       } elseif ($request->permission_type =='crud') {
+           $this->validate($request, [
+             'resource' => 'required|min:3|max:100|alpha'
+          ]);
+
+          $crud = explode(',', $request->crud_selected);
+          if (count($crud) > 0) {
+             foreach ($crud as $x) {
+                  $slug = strtolower($x) . '-' . $request->resource;
+                  $display_name = ucwords($x . " " . $request->resource);
+                  $description = "Allows a user to " . strtoupper($x) . ' a ' . ucwords($request->resource);
+
+                  $permission = new Permission();
+                  $permission->name = $request->name;
+                  $permission->display_name = $request->display_name;
+                  $permission->description = $request->description;
+                  $permission->save();
+
+                  Session::flash('success', 'Permission has been successfully added');
+                  return redirect()->route('admin.permissions.show, $id');
+             }
+          }
+       } else {
+          return redirect()->route('admin.permissions.create')->withInput();
+       }
     }
 
     /**
@@ -46,7 +89,8 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+        return view("admin.permissions.show")->withPermission($permission);
     }
 
     /**
@@ -57,7 +101,8 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        //
+      $permission = Permission::findOrFail($id);
+      return view("admin.permissions.edit")->withPermission($permission);
     }
 
     /**
@@ -69,7 +114,18 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+           'display_name' => 'required|max:255',
+           'description' => 'required|max:255'
+        ]);
+
+        $permission = Permission::findOrFail($id);
+        $permission->display_name = $request->display_name;
+        $permission->description = $request->description;
+        $permission->save();
+
+        Session::flash('success', 'Permission has been successfully updated');
+        return redirect()->route('admin.permissions.show, $id');
     }
 
     /**

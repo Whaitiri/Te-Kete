@@ -1055,9 +1055,21 @@ var app = new Vue({
    data: {
       auto_password: false, // disables password field if auto_generate is enabled
       password_options: 'keep',
+      //permissions data
       permissionType: 'basic',
       resource: '',
       crudSelected: ['create', 'read', 'update', 'delete']
+   },
+   methods: { //these methods are for permission creation.
+      crudName: function crudName(item) {
+         return item.substr(0, 1).toUpperCase() + item.substr(1) + " " + app.resource.substr(0, 1).toUpperCase() + app.resource.substr(1);
+      },
+      crudSlug: function crudSlug(item) {
+         return item.toLowerCase() + "-" + app.resource.toLowerCase();
+      },
+      crudDescription: function crudDescription(item) {
+         return "Allows a User to " + item.toUpperCase() + " a " + app.resource.substr(0, 1).toUpperCase() + app.resource.substr(1);
+      }
    }
 });
 

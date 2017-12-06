@@ -6,7 +6,7 @@
 			<h1 class="title">Manage permissions</h1>
 		</div>
 		<div class="column is-one-fifth">
-			<a href="{{route('permissions.create')}}" class="button"> <i class="fa fa-permissions-add"></i> Create permissions</a>
+			<a href="{{route('permissions.create')}}" class="button"> <i></i> Create permissions</a>
 		</div>
 	</div>
 	<hr class="m-t-0">
@@ -17,8 +17,9 @@
 					<thead>
 						<tr>
 							<th>id</th>
-							<th>Name</th>
-							<th>Email</th>
+							<th>Display Name</th>
+							<th>Slug</th>
+							<th>Description</th>
 							<th>Date Created</th>
 							<th>Actions</th>
 						</tr>
@@ -27,11 +28,12 @@
 					<tbody>
 						@foreach ($permissions as $permission)
 							<tr>
-								<th>{{$permissions->id}}</th>
-								<td><a href="{{ route('permissions.show', $permissions->id)}}">{{$permissions->name}}</a></td>
-								<td>{{$permissions->email}}</td>
-								<td>{{$permissions->created_at->toFormattedDateString()}} </td>
-								<td><a href="{{route('permissions.edit', $permissions->id)}}" class="button is-outlined">Edit</a></td>
+								<th>{{$permission->id}}</th>
+								<td><a href="#">{{$permissions->display_name}}</a></td>
+								<td>{{$permission->name}}</td>
+								<td>{{$permission->description}}</td>
+								<td>{{$permission->created_at->toFormattedDateString()}} </td>
+								<td><a href="#" class="button is-outlined">Edit</a></td>
 							</tr>
 						@endforeach
 					</tbody>
@@ -39,7 +41,7 @@
 			</div>
 		</div>
 
-		{{$permissions->links()}}
+		{{-- {{$permissions->links()}} --}}
 	</div>
 
 @endsection
