@@ -19,6 +19,9 @@ var app = new Vue({
   el: '#app',
   data: {
      auto_password: false, // disables password field if auto_generate is enabled
-     password_options: 'keep'
- }
+     password_options: 'keep',
+     permissionType: 'basic',
+     resource: '',
+     crudSelected: ['create','read','update','delete']
+  }
 })

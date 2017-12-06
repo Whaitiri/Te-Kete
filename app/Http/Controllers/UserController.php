@@ -120,7 +120,7 @@ class UserController extends Controller
          $user->password = Hash::make($request->password);
       }
       $user->save();
-      
+
       if ($user->save()) {
          return redirect()->route('users.show', $id);
       } else {
@@ -137,6 +137,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        //redirect
+        Session::flash('message', 'Deleted user successfully');
+        return redirect()->route('users.index');
     }
 }

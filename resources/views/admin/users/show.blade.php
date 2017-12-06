@@ -6,9 +6,6 @@
 			<h1 class="title">{{$user->name}}</h1>
 			<h4 class="subtitle">View User</h4>
 		</div>
-		<div class="column is-one-fifth">
-			<a href="{{route('users.edit', $user->id)}}" class="button"><i class="fa fa-user-add"></i>Edit User</a>
-		</div>
 	</div>
 	<hr class="m-t-0">
 
@@ -31,6 +28,18 @@
 						</p>
 					</div>
 
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-content">
+					<a href="{{route('users.edit', $user->id)}}" class="button is-success is-medium is-outlined">Edit</a>
+					<form action="{{route('users.destroy', $user->id)}}" class="is-inline" method="POST">
+						{{ method_field('DELETE') }}
+						{{csrf_field()}}
+						<button class="button is-danger is-medium is-outlined">Delete</button>
+
+					</form>
+					<a href="{{route('users.index')}}" class="button is-outlined is-medium is-info is-pulled-right">Go Back</a>
 				</div>
 			</div>
 		</div>
