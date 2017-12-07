@@ -6,7 +6,7 @@
 			<h1 class="title">Create Users</h1>
 		</div>
 		<div class="column is-one-fifth">
-			<a href="{{route('users.create')}}" class="button"> <i class="fa fa-user-add"></i> Create User</a>
+			<a href="{{ URL::previous() }}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">

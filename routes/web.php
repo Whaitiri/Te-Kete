@@ -19,6 +19,7 @@ Route::prefix('admin')->middleware('role:superadministrator|administrator|editor
 	Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
 	Route::resource('/users', 'UserController');
 	Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
+	Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
