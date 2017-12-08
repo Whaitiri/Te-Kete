@@ -32,14 +32,8 @@
 			</div>
 			<div class="card">
 				<div class="card-content">
-					<a href="{{route('users.edit', $user->id)}}" class="button is-success is-medium is-outlined">Edit</a>
-					<form action="{{route('users.destroy', $user->id)}}" class="is-inline" method="POST">
-						{{ method_field('DELETE') }}
-						{{csrf_field()}}
-						<button class="button is-danger is-medium is-outlined">Delete</button>
-
-					</form>
-					<a href="{{route('users.index')}}" class="button is-outlined is-medium is-info is-pulled-right">Go Back</a>
+					<a href="{{route('users.edit', $user->id)}}" class="button is-medium is-outlined">Edit</a>
+					<a href="{{route('users.index')}}" class="button is-outlined is-medium is-pulled-right">Go Back</a>
 				</div>
 			</div>
 		</div>

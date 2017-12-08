@@ -3,7 +3,7 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">Create Permissions</h1>
+			<h1 class="title">Create Roles</h1>
 		</div>
 		<div class="column is-one-fifth">
 			<a href="{{ URL::previous() }}" class="button">Back</a>
@@ -15,43 +15,43 @@
 		<div class="column">
 			<div class="card">
 				<div class="card-content">
-					<form action="{{route('permissions.store')}}" method="POST">
+					<form action="{{route('roles.store')}}" method="POST">
 						{{csrf_field()}}
 
 						<div class="block">
-							<b-radio v-model="permissionType" name="permissionType" native-value="basic">Basic Permission</b-radio>
-							<b-radio v-model="permissionType" name="permissionType" native-value="crud">CRUD Permission</b-radio>
+							<b-radio v-model="roleType" name="roleType" native-value="basic">Basic Role</b-radio>
+							<b-radio v-model="roleType" name="roleType" native-value="crud">CRUD Role</b-radio>
 						</div>
 
-						<div class="field" v-if="permissionType == 'basic'">
+						<div class="field" v-if="roleType == 'basic'">
 							<label for="display_name" class="label">Display Name</label>
 							<p class="control">
 								<input type="text" class="input" name="display_name" id="display_name">
 							</p>
 						</div>
 
-						<div class="field" v-if="permissionType == 'basic'">
+						<div class="field" v-if="roleType == 'basic'">
 							<label for="slug" class="label">Slug</label>
 							<p class="control">
 								<input type="text" class="input" name="name" id="name">
 							</p>
 						</div>
 
-						<div class="field" v-if="permissionType == 'basic'">
+						<div class="field" v-if="roleType == 'basic'">
 							<label for="description" class="label">Description</label>
 							<p class="control">
 								<input type="text" class="input" name="description" id="description">
 							</p>
 						</div>
 
-						<div class="field" v-if="permissionType == 'crud'">
+						<div class="field" v-if="roleType == 'crud'">
 							<label for="resource" class="label">Resource</label>
 							<p class="control">
 								<input type="text" class="input" name="resource" id="resource" v-model="resource">
 							</p>
 						</div>
 
-						<div class="columns" v-if="permissionType == 'crud'">
+						<div class="columns" v-if="roleType == 'crud'">
 							<div class="column">
 								<div class="field">
 									<b-checkbox v-model="crudSelected" native-value="create">Create</b-checkbox>
@@ -87,7 +87,7 @@
 								</table>
 							</div>
 						</div>
-						<button class="button is-success m-t-10">Create permissions</button>
+						<button class="button is-success m-t-10">Create roles</button>
 					</form>
 				</div>
 			</div>

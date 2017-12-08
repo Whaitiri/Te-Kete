@@ -46,3 +46,15 @@
 		</div>
 	</div>
 @endsection
+
+@section('scripts')
+	<script>
+		var app = new Vue({
+			el:'#app',
+		  	data: {
+		     	auto_password: false
+			}
+	  	});
+
+	</script>
+@endsection

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Role;
+use App\Permission;
+use Session;
 
 class RoleController extends Controller
 {
@@ -46,7 +49,8 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+      $role = Role::where('id', $id)->with('permissions')->first();
+      return view("admin.roles.show")->withRole($role);
     }
 
     /**
@@ -57,7 +61,9 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+      $role = Role::where('id', $id)->with('permissions')->first();
+      $permissions = Permission::all();
+      return view("admin.roles.edit")->withRole($role)->withPermissions($permissions);
     }
 
     /**
@@ -69,7 +75,6 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

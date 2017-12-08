@@ -3,13 +3,13 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">{{$permission->name}}</h1>
-			<h4 class="subtitle">View permissions</h4>
+			<h1 class="title">{{$permission->display_name}}</h1>
+			<h4 class="subtitle">View Permission</h4>
 		</div>
 		<div class="column is-one-fifth">
 			<div class="columns">
 				<div class="column">
-					<a href="{{route('permissions.edit', $permission->id)}}" class="button">Edit permissions</a>
+					<a href="{{route('permissions.edit', $permission->id)}}" class="button">Edit Permission</a>
 				</div>
 			</div>
 		</div>
@@ -21,18 +21,24 @@
 			<div class="card">
 				<div class="card-content">
 
-					<div class="field">
-						<label for="name" class="label">Display Name</label>
-						<p class="control">
-							<pre>{{$permission->display_name}}</pre>
-						</p>
-					</div>
+					<div class="columns">
+						<div class="column is-one-half">
+							<div class="field">
+								<label for="name" class="label">Display Name</label>
+								<p class="control">
+									<pre>{{$permission->display_name}}</pre>
+								</p>
+							</div>
+						</div>
 
-					<div class="field">
-						<label for="name" class="label">Slug</label>
-						<p class="control">
-							<pre>{{$permission->name}}</pre>
-						</p>
+						<div class="column is-one-half">
+							<div class="field">
+								<label for="name" class="label">Slug</label>
+								<p class="control">
+									<pre>{{$permission->name}}</pre>
+								</p>
+							</div>
+						</div>
 					</div>
 
 					<div class="field">

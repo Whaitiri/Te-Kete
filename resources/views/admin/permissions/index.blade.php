@@ -29,7 +29,7 @@
 						@foreach ($permissions as $permission)
 							<tr>
 								<th>{{$permission->id}}</th>
-								<td><a href="#">{{$permission->display_name}}</a></td>
+								<td><a href="{{route('permissions.show', $permission->id)}}">{{$permission->display_name}}</a></td>
 								<td>{{$permission->name}}</td>
 								<td>{{ str_limit($permission->description, $limit = 30, $end = '...') }}</td>
 								<td>{{$permission->created_at->toFormattedDateString()}} </td>
