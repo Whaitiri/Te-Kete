@@ -1,7 +1,41 @@
-.sideMenu {
+#adminSideMenu {
+	position: fixed;
+	left:-200px;
+	top:92px;
 	background-color: lighten($primary, 10%);
-	height: 100vh;
+	height: 100%;
+	bottom: 0;
+
+
+	@include desktop {
+		position: static;
+	}
+
+	&.is-active{
+		left:0px;
+		height: 100vh;
+		z-index:100;
+	}
 }
+
+#sidebarColumn {
+	width: inherit;
+	@include mobile {
+		width: 0px;
+	}
+}
+
+#slideoutButton, #slideoutButton i {
+	position: absolute;
+	left: 8rem;
+	top: 1.25rem;
+	transition: 0.3s;
+	&.is-active {
+
+	}
+}
+
+
 
 .adminTable {
 	width: 100%;

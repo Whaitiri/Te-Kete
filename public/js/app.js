@@ -29351,11 +29351,19 @@ document.addEventListener('DOMContentLoaded', function () {
 /* 35 */
 /***/ (function(module, exports) {
 
+var slideoutButton = document.getElementById('slideoutButton');
+var adminSideMenu = document.getElementById('adminSideMenu');
+
 $(document).ready(function () {
 	$(".dropdown-trigger").click(function () {
 		$(".dropdown").toggleClass("is-active");
 	});
 });
+
+slideoutButton.onclick = function () {
+	this.classList.toggle('is-active');
+	document.getElementById('adminSideMenu').classList.toggle('is-active');
+};
 
 /***/ }),
 /* 36 */

@@ -11,17 +11,18 @@
 		</div>
 	</div>
 	<hr class="m-t-0">
+	<form action="{{route('roles.update', $role->id)}}" method="POST">
 
-	<div class="columns">
-		<div class="column">
-			<div class="card">
-				<div class="card-content">
+		{{csrf_field()}}
+		{{method_field('PUT')}}
 
-					<form action="{{route('roles.update', $role->id)}}" method="POST">
-						{{method_field('PUT')}}
-						{{csrf_field()}}
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+					<div class="card-content">
 
 						<div class="columns">
+
 							<div class="column is-one-half">
 								<div class="field">
 									<label for="display_name" class="label">Display Name</label>
@@ -39,6 +40,7 @@
 						        	</p>
 						      </div>
 							</div>
+
 						</div>
 
 						<div class="field">
@@ -47,26 +49,26 @@
 								<input type="text" class="input" name="description" id="description" value="{{$role->description}}">
 							</p>
 						</div>
+						<input type="hidden" :value="permissionsSelected" name="permissions">
 
 				</div>
-				<div class="card">
-					<div class="card-content">
-						<h2 class="title is-4">Permissions:</h2>
+
+					<div class="card">
+						<div class="card-content">
+							<label for="permissions" class="label">Permissions</label>
 								@foreach ($permissions as $permission)
-                      <div class="field">
-                        <b-checkbox v-model="permissionsSelected" :native-value="{{$permission->id}}">{{$permission->display_name}} <em class="m-l-20"><small>({{$permission->description}})</small></em></b-checkbox>
-							 </div>
-                    @endforeach
-							<button class="button is-success m-t-10">Edit Role</button>
-							</form>
+	                      	<div class="field">
+	                        	<b-checkbox v-model="permissionsSelected" :native-value="{{$permission->id}}">{{$permission->display_name}} <em class="m-l-20"><small>({{$permission->description}})</small></em></b-checkbox>
+								 	</div>
+	                    	@endforeach
+
+								<button class="button is-success m-t-10">Edit Role</button>
+						</div>
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
-	</div>
+	</form>
 
 @endsection
 

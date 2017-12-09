@@ -6,11 +6,17 @@
 						<figure class="image is-64x64"></figure>
 					</a>
 					<img class="navbar-item navLogoKete" src="{{asset('img/kete.png')}}" alt="Te Kete Kete">
-					<button class="button  navbar-burger" data-target="navMenu">
+
+					@if (Request::segment(1) == "admin")
+						<a class="is-hidden-desktop" id="slideoutButton"><i class="fa fa-arrow-circle-right"></i></a>
+					@endif
+
+
+					<a class="button navbar-burger" data-target="navMenu">
 						 <span></span>
 						 <span></span>
 						 <span></span>
-					</button>
+					</a>
 			  </div>
 			  <div class="navbar-menu" id="navMenu">
 					<div class="navbar-start">
@@ -43,7 +49,7 @@
 						@endif
 					</div>
 					<div class="navbar-end ">
-						 <a href="{{route('home')}}" class="navbar-item is-tab">Home</a>
+						 <a href="{{route('home')}}" class="{{ Nav::isRoute('home')}} navbar-item is-tab">Home</a>
 						 <a href="#" class="navbar-item is-tab">Community</a>
 						 <a href="#" class="navbar-item is-tab">Work</a>
 						 <a href="#" class="navbar-item is-tab">People</a>

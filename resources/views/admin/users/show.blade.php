@@ -28,6 +28,26 @@
 						</p>
 					</div>
 
+					<div class="field">
+						<label for="role" class="label">Roles</label>
+						<p class="control">
+								<ul class="content">
+									{{$user->roles->count() == 0 ? 'This user has not been assigned any roles yet' : ''}}
+									@foreach ($user->roles as $role)
+										<div class="columns">
+											<div class="column is-one-fifth">
+												<li>{{$role->display_name}}</li>
+											</div>
+											<div class="column">
+												<li><small><em>{{$role->description}}</em></small></li>
+											</div>
+										</div>
+									@endforeach
+								</ul>
+						</p>
+					</div>
+
+
 				</div>
 			</div>
 			<div class="card">

@@ -3,7 +3,7 @@
    <div id="app">
 		@include('layouts.components.navbar')
       <div class="columns">
-         <div class="column is-one-fifth is-gapless">
+         <div id="sidebarColumn" class="column is-one-fifth is-gapless">
             @include('admin.layouts.components.sidebar')
          </div>
          <div class="column">

@@ -3,94 +3,80 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">Create Roles</h1>
+			<h1 class="title">Create New Role</h1>
+			<h4 class="subtitle"></h4>
 		</div>
 		<div class="column is-one-fifth">
 			<a href="{{ URL::previous() }}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">
+	<form action="{{route('roles.store')}}" method="POST">
+		{{csrf_field()}}
 
-	<div class="columns">
-		<div class="column">
-			<div class="card">
-				<div class="card-content">
-					<form action="{{route('roles.store')}}" method="POST">
-						{{csrf_field()}}
+		<div class="columns">
+			<div class="column">
+				<div class="card">
+					<div class="card-content">
 
-						<div class="block">
-							<b-radio v-model="roleType" name="roleType" native-value="basic">Basic Role</b-radio>
-							<b-radio v-model="roleType" name="roleType" native-value="crud">CRUD Role</b-radio>
+						<div class="columns">
+
+							<div class="column is-one-half">
+								<div class="field">
+									<label for="display_name" class="label">Display Name</label>
+									<p class="control">
+										<input type="text" class="input" name="display_name" id="display_name">
+									</p>
+								</div>
+							</div>
+
+							<div class="column is-one-half">
+								<div class="field">
+									<label for="name" class="label">Slug</label>
+									<p class="control">
+										<input type="text" class="input" name="name" id="name">
+									</p>
+								</div>
+							</div>
+
 						</div>
 
-						<div class="field" v-if="roleType == 'basic'">
-							<label for="display_name" class="label">Display Name</label>
-							<p class="control">
-								<input type="text" class="input" name="display_name" id="display_name">
-							</p>
-						</div>
-
-						<div class="field" v-if="roleType == 'basic'">
-							<label for="slug" class="label">Slug</label>
-							<p class="control">
-								<input type="text" class="input" name="name" id="name">
-							</p>
-						</div>
-
-						<div class="field" v-if="roleType == 'basic'">
+						<div class="field">
 							<label for="description" class="label">Description</label>
 							<p class="control">
 								<input type="text" class="input" name="description" id="description">
 							</p>
 						</div>
+						<input type="hidden" :value="permissionsSelected" name="permissions">
 
-						<div class="field" v-if="roleType == 'crud'">
-							<label for="resource" class="label">Resource</label>
-							<p class="control">
-								<input type="text" class="input" name="resource" id="resource" v-model="resource">
-							</p>
+				</div>
+
+					<div class="card">
+						<div class="card-content">
+							<h2 class="title is-4">Permissions:</h2>
+								@foreach ($permissions as $permission)
+									<div class="field">
+										<b-checkbox v-model="permissionsSelected" :native-value="{{$permission->id}}">{{$permission->display_name}} <em class="m-l-20"><small>({{$permission->description}})</small></em></b-checkbox>
+									</div>
+								@endforeach
+
+								<button class="button is-success m-t-10">Create Role</button>
 						</div>
-
-						<div class="columns" v-if="roleType == 'crud'">
-							<div class="column">
-								<div class="field">
-									<b-checkbox v-model="crudSelected" native-value="create">Create</b-checkbox>
-								</div>
-								<div class="field">
-									<b-checkbox v-model="crudSelected" native-value="read">Read</b-checkbox>
-								</div>
-								<div class="field">
-									<b-checkbox v-model="crudSelected" native-value="update">Update</b-checkbox>
-								</div>
-								<div class="field">
-									<b-checkbox v-model="crudSelected" native-value="delete">Delete</b-checkbox>
-								</div>
-							</div>
-
-
-							<input type="hidden" name="crud_selected" :value="crudSelected">
-
-							<div class="column is-two-thirds">
-								<table class="table">
-									<thead>
-										<th class="is-small">Name</th>
-										<th class="is-small">Slug</th>
-										<th class="is-small">Description</th>
-									</thead>
-									<tbody v-if="resource.length >= 3">
-										<tr class="is-small" v-for="item in crudSelected">
-											<td class="is-small" v-text="crudName(item)"></td>
-											<td class="is-small" v-text="crudSlug(item)"></td>
-											<td class="is-small" v-text="crudDescription(item)"></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<button class="button is-success m-t-10">Create roles</button>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
+@endsection
+
+@section('scripts')
+	<script>
+		var app = new Vue({
+			el:'#app',
+		  	data: {
+		     	permissionsSelected: []
+			}
+	  	});
+
+	</script>
 @endsection

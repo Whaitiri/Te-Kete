@@ -16859,8 +16859,23 @@ a {
   color: black;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
 .dropdown-trigger {
   cursor: pointer;
+}
+
+.navbar-burger {
+  border: none;
+  background-color: none;
+  min-width: 40px;
 }
 
 .dropdown button {
@@ -16886,6 +16901,12 @@ a.dropdown-item:hover,
 .dropdown .dropdown-menu .has-link a:hover,
 .menu-list a:hover {
   background-color: #7a8e75;
+}
+
+.menu-list a.is-active,
+a.is-active {
+  background-color: #7a8e75;
+  font-size: 1.2rem;
 }
 
 .footer {
@@ -17439,9 +17460,44 @@ a.dropdown-item:hover,
   margin-bottom: 100px;
 }
 
-.sideMenu {
+#adminSideMenu {
+  position: fixed;
+  left: -200px;
+  top: 92px;
   background-color: #b0bcad;
+  height: 100%;
+  bottom: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  #adminSideMenu {
+    position: static;
+  }
+}
+
+#adminSideMenu.is-active {
+  left: 0px;
   height: 100vh;
+  z-index: 100;
+}
+
+#sidebarColumn {
+  width: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  #sidebarColumn {
+    width: 0px;
+  }
+}
+
+#slideoutButton,
+#slideoutButton i {
+  position: absolute;
+  left: 8rem;
+  top: 1.25rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .adminTable {

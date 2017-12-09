@@ -27,7 +27,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+      // $role = Role::where('id', $id)->with('permissions')->first();
+      $permissions = Permission::all();
+      return view("admin.roles.create")->withPermissions($permissions);
     }
 
     /**
@@ -38,7 +40,24 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validateWith ([
+         'display_name' => 'required|max:255',
+         'name' => 'required|max:100|alpha_dash|unique:roles',
+         'description' => 'sometimes|max:255'
+      ]);
+
+      $role = new Role();
+      $role->name = $request->name;
+      $role->display_name = $request->display_name;
+      $role->description = $request->description;
+      $role->save();
+
+      if ($request->permissions) {
+         $role->syncPermissions(explode(',', $request->permissions));
+      }
+
+      Session::flash('success', 'Role has been successfully created');
+      return redirect()->route('roles.show', $role->id);
     }
 
     /**
@@ -75,6 +94,22 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $this->validateWith ([
+         'display_name' => 'required|max:255',
+         'description' => 'sometimes|max:255'
+      ]);
+
+      $role = Role::findOrFail($id);
+      $role->display_name = $request->display_name;
+      $role->description = $request->description;
+      $role->save();
+
+      if ($request->permissions) {
+         $role->syncPermissions(explode(',', $request->permissions));
+      }
+
+      Session::flash('success', 'Role has been successfully updated');
+      return redirect()->route('roles.show', $id);
     }
 
     /**

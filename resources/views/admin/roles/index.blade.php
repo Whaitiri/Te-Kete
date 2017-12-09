@@ -14,12 +14,12 @@
 
 	<div class="columns is-multiline">
 		@foreach ($roles as $role)
-			<div class="column is-one-quarter">
+			<div class="column is-one-third">
 				<div class="box">
 					<article class="media">
 						<div class="media-content">
 							<div class="content">
-								<h4 class="title"><a href="{{route('roles.show', $role->id)}}">{{$role->display_name}}</a></h4>
+								<h4 class="is-small title"><a href="{{route('roles.show', $role->id)}}">{{$role->display_name}}</a></h4>
 								<h5 class="subtitle"><em>{{$role->name}}</em></h5>
 								<p class="content">{{ str_limit($role->description, $limit = 30, $end = '...') }}</p>
 								<div class="columns is-gapless is-mobile">

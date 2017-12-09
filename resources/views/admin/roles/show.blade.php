@@ -50,8 +50,8 @@
 				</div>
 				<div class="card">
 					<div class="card-content">
-						<h3 class="title is-4">Permissions:</h2>
-							<ul class="m-l-10">
+						<label for="permissions" class="label">Permissions</label>
+							<ul>
 								@foreach ($role->permissions as $r)
 									<li>{{$r->display_name}} <em class="m-l-20 is-4">{{$r->description}}</em></li>
 								@endforeach
