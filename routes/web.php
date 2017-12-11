@@ -20,6 +20,7 @@ Route::prefix('admin')->middleware('role:superadministrator|administrator|editor
 	Route::resource('/users', 'UserController');
 	Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
 	Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
+	Route::resourcE('/posts', 'PostsController');
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

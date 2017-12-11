@@ -4,6 +4,12 @@
 			<li><a class="m-r-15 {{ Nav::isRoute('admin.dashboard')}}" href="{{route('admin.dashboard')}}">Dashboard</a></li>
 		</ul>
 
+		<p class="menu-label ">Content</p>
+		<ul class="menu-list">
+			<li><a class="m-r-15 {{ Nav::isRoute('admin.dashboard')}}" href="{{route('posts.index')}}">Posts</a></li>
+		</ul>
+
+
 		<p class="menu-label">Administration</p>
 		<ul class="menu-list p-b-20">
 			<li><a class="m-r-15 {{ Nav::isResource('users')}}"href="{{route('users.index')}}">Users</a></li>
