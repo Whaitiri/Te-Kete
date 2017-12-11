@@ -19,22 +19,38 @@
 				<div class="card">
 					<div class="card-content">
 
+						<div class="field">
+							<label for="title" class="label">Post Title</label>
+							<p class="control">
+								<input type="text" v-model="title" class="input" name="title" id="title">
+							</p>
+						</div>
+
+						<div class="field">
+							<label for="title" class="label">Post Slug</label>
+							<p class="control">
+								<input type="text" :value="compTitleSlug" class="input" name="titleSlug" readonly>
+							</p>
+						</div>
+
 						<div class="columns">
 
 							<div class="column is-one-half">
 								<div class="field">
-									<label for="display_name" class="label">Display Name</label>
+									<label for="title" class="label">Post Author</label>
 									<p class="control">
-										<input type="text" class="input" name="display_name" id="display_name">
+										<input type="hidden" name="author_id" id="author_id" value="{{Auth::user()->id}}">
+										<input type="text" class="input" id="author_id" name="author_id" value="{{Auth::user()->name}}" disabled>
+
 									</p>
 								</div>
 							</div>
 
 							<div class="column is-one-half">
 								<div class="field">
-									<label for="name" class="label">Slug</label>
+									<label for="subtitle" class="label">Post Subtitle</label>
 									<p class="control">
-										<input type="text" class="input" name="name" id="name">
+										<input type="text" class="input" name="subtitle" id="subtitle">
 									</p>
 								</div>
 							</div>
@@ -42,27 +58,17 @@
 						</div>
 
 						<div class="field">
-							<label for="description" class="label">Description</label>
+							<label for="description" class="label">Post Content</label>
 							<p class="control">
-								<input type="text" class="input" name="description" id="description">
+								<input type="text" class="input" name="content" id="content">
 							</p>
 						</div>
-						<input type="hidden" :value="permissionsSelected" name="permissions">
+						<input type="hidden" name="status" id="status" value="1">
+						<input type="hidden" name="type" id="type" value="1">
+						<input type="hidden" name="comment_count" id="comment_count" value="0">
+						<button class="button is-success m-t-10">Create Post</button>
 
 				</div>
-
-					<div class="card">
-						<div class="card-content">
-							<h2 class="title is-4">Permissions:</h2>
-								@foreach ($permissions as $permission)
-									<div class="field">
-										<b-checkbox v-model="permissionsSelected" :native-value="{{$permission->id}}">{{$permission->display_name}} <em class="m-l-20"><small>({{$permission->description}})</small></em></b-checkbox>
-									</div>
-								@endforeach
-
-								<button class="button is-success m-t-10">Create Post</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -72,9 +78,17 @@
 @section('scripts')
 	<script>
 		var app = new Vue({
-			el:'#app',
-		  	data: {
-		     	permissionsSelected: []
+			el: '#app',
+		  	data: function(){
+				return {
+					title: '',
+			     	titleSlug: ''
+				};
+			},
+			computed: {
+				compTitleSlug: function() {
+					return this.title
+				}
 			}
 	  	});
 

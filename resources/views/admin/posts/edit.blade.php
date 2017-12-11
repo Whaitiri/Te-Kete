@@ -25,18 +25,18 @@
 
 							<div class="column is-one-half">
 								<div class="field">
-									<label for="display_name" class="label">Display Name</label>
+									<label for="title" class="label">Title</label>
 									<p class="control">
-										<input type="text" class="input" name="display_name" id="display_name" value="{{$post->display_name}}">
+										<input type="text" class="input" name="title" id="title" value="{{$post->title}}">
 									</p>
 								</div>
 							</div>
 
 							<div class="column is-one-half">
 								<div class="field">
-						        	<label for="name" class="label">Slug <small>(Cannot be changed)</small></label>
+						        	<label for="subtitle" class="label">Subtitle</label>
 						        	<p class="control">
-						         	<input type="text" class="input" name="name" id="name" value="{{$post->name}}" disabled>
+						         	<input type="text" class="input" name="subtitle" id="subtitle" value="{{$post->subtitle}}">
 						        	</p>
 						      </div>
 							</div>
@@ -44,27 +44,14 @@
 						</div>
 
 						<div class="field">
-							<label for="description" class="label">Description</label>
+							<label for="content" class="label">Content</label>
 							<p class="control">
-								<input type="text" class="input" name="description" id="description" value="{{$post->description}}">
+								<input type="text" class="input" name="content" id="content" value="{{$post->content}}">
 							</p>
 						</div>
-						<input type="hidden" :value="permissionsSelected" name="permissions">
+						<button class="button is-success m-t-10">Edit Post</button>
 
 				</div>
-
-					<div class="card">
-						<div class="card-content">
-							<label for="permissions" class="label">Permissions</label>
-								@foreach ($permissions as $permission)
-	                      	<div class="field">
-	                        	<b-checkbox v-model="permissionsSelected" :native-value="{{$permission->id}}">{{$permission->display_name}} <em class="m-l-20"><small>({{$permission->description}})</small></em></b-checkbox>
-								 	</div>
-	                    	@endforeach
-
-								<button class="button is-success m-t-10">Edit Post</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -77,7 +64,7 @@
 		var app = new Vue({
 			el:'#app',
 		  	data: {
-		     	permissionsSelected: {!!$post->permissions->pluck('id')!!}
+
 			}
 	  	});
 

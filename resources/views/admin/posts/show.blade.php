@@ -26,7 +26,7 @@
 							<div class="field">
 								<label for="name" class="label">Display Name</label>
 								<p class="control">
-									<pre>{{$post->display_name}}</pre>
+									<pre>{{$post->title}}</pre>
 								</p>
 							</div>
 						</div>
@@ -35,7 +35,7 @@
 							<div class="field">
 								<label for="name" class="label">Slug</label>
 								<p class="control">
-									<pre>{{$post->name}}</pre>
+									<pre>{{$post->subtitle}}</pre>
 								</p>
 							</div>
 						</div>
@@ -44,19 +44,11 @@
 					<div class="field">
 						<label for="name" class="label">Description</label>
 						<p class="control">
-							<pre>{{$post->description}}</pre>
+							<pre>{{$user->name}}</pre>
 						</p>
 					</div>
 				</div>
-				<div class="card">
-					<div class="card-content">
-						<label for="permissions" class="label">Permissions</label>
-							<ul>
-								@foreach ($post->permissions as $r)
-									<li>{{$r->display_name}} <em class="m-l-20 is-4">{{$r->description}}</em></li>
-								@endforeach
-							</ul>
-					</div>
+
 				</div>
 			</div>
 		</div>

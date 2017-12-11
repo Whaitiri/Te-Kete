@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Posts;
 use Illuminate\Http\Request;
+use Session;
+use App\Post;
+use App\User;
+use DB;
+
 
 class PostsController extends Controller
 {
@@ -14,8 +18,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $posts = Post::all();
-         return view('admin.posts.index');
+      $posts = Post::paginate(20);
+      $users = User::all();
+
+      return view('admin.posts.index')->withPosts($posts)->withUsers($users);
     }
 
     /**
@@ -25,7 +31,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+      $users = User::all();
+      return view('admin.posts.create');
     }
 
     /**
@@ -36,7 +43,28 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // dd($request->all());
+      //   $this->validate($request, [
+      //      'title' => 'required|max:255',
+      //      'slug' => 'required|max:255|unique:posts',
+      //      'subtitle' => 'required|max:255',
+      //      'content' => 'required',
+      //
+         $post = new Post();
+         $post->title = $request->title;
+         $post->slug = $request->titleSlug;
+         $post->author_id = $request->author_id;
+         $post->subtitle = $request->subtitle;
+         $post->content = $request->content;
+
+         $post->status = $request->status;
+         $post->type = $request->type;
+         $post->comment_count = $request->comment_count;
+
+         $post->save();
+
+
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
@@ -45,9 +73,12 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show($id)
     {
-        //
+      $post = Post::where('id', "=", $id)->firstOrFail();
+      $user = DB::table('users')->where('id', $post->author_id)->first();
+      return view("admin.posts.show")->withPost($post)->withUser($user);
+
     }
 
     /**
@@ -56,9 +87,10 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function edit(Posts $posts)
+    public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view("admin.posts.edit")->withPost($post);
     }
 
     /**
@@ -68,9 +100,15 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Posts $posts)
+    public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->title = $request->title;
+        $post->subtitle = $request->subtitle;
+        $post->content = $request->content;
+        $post->save();
+
+        return redirect()->route('posts.show', $id);
     }
 
     /**
@@ -79,8 +117,13 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Posts $posts)
+    public function destroy($id)
     {
-        //
+      $post = Post::findOrFail($id);
+      $post->delete();
+
+      //redirect
+      Session::flash('message', 'Deleted post successfully');
+      return redirect()->route('posts.index');
     }
 }
