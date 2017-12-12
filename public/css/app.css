@@ -16867,6 +16867,19 @@ body {
   padding: 0px;
 }
 
+table {
+  table-layout: fixed;
+}
+
+small {
+  font-size: 0.7rem;
+}
+
+.contentCell {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
 .dropdown-trigger {
   cursor: pointer;
 }
@@ -17491,6 +17504,6 @@ a.is-active {
 }
 
 .adminTable {
-  width: 100%;
+  max-width: 100%;
 }
 

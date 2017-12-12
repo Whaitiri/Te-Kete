@@ -16,7 +16,7 @@
 		<thead>
 			<tr>
 				<th>id</th>
-				<th>Display Name<br><small>(Slug)</small></th>
+				<th>Display Name<br><small><em>(Slug)</em></small></th>
 				<th>Description</th>
 				<th>Actions</th>
 			</tr>
@@ -26,7 +26,7 @@
 			@foreach ($roles as $role)
 				<tr>
 					<th>{{$role->id}}</th>
-					<td><a href="{{ route('roles.show', $role->id)}}">{{$role->display_name}}<br><small>({{$role->name}})</small></a></td>
+					<td><a href="{{ route('roles.show', $role->id)}}">{{$role->display_name}}<br><small><em>({{$role->name}})</em></small></a></td>
 					<td>{{$role->description}} </td>
 					<td>
 						<a href="{{route('roles.show', $role->id)}}" class="button is-small is-outlined">View</a>

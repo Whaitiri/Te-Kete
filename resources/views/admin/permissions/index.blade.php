@@ -16,8 +16,7 @@
 					<thead>
 						<tr>
 							<th>id</th>
-							<th>Display Name</th>
-							<th>Slug</th>
+							<th>Display Name<br><small><em>(Slug)</em></small></th>
 							<th>Description</th>
 							<th>Date Created</th>
 							<th>Actions</th>
@@ -28,8 +27,7 @@
 						@foreach ($permissions as $permission)
 							<tr>
 								<th>{{$permission->id}}</th>
-								<td><a href="{{route('permissions.show', $permission->id)}}">{{$permission->display_name}}</a></td>
-								<td>{{$permission->name}}</td>
+								<td><a href="{{route('permissions.show', $permission->id)}}">{{$permission->display_name}}<br><small><em>({{$permission->name}})</em></small></a></td>
 								<td>{{ str_limit($permission->description, $limit = 30, $end = '...') }}</td>
 								<td>{{$permission->created_at->toFormattedDateString()}} </td>
 								<td>
