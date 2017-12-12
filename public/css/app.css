@@ -17464,6 +17464,7 @@ a.is-active {
   position: fixed;
   left: -200px;
   top: 92px;
+  width: 200px;
   background-color: #b0bcad;
   height: 100%;
   bottom: 0;
@@ -17472,6 +17473,7 @@ a.is-active {
 @media screen and (min-width: 1024px) {
   #adminSideMenu {
     position: static;
+    width: 200px;
   }
 }
 

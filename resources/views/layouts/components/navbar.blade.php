@@ -26,7 +26,7 @@
 						@else
 							<div class="navbar-item is-tab dropdown">
 							  <div class="dropdown-trigger">
-							      <span>Account</span>
+							      <span>{{Auth::user()->name}}</span>
 							      <span class="icon is-small">
 							        <i class="fa fa-angle-down" aria-hidden="true"></i>
 							      </span>
@@ -38,22 +38,31 @@
 							      <a class="dropdown-item">Notifications</a>
 							      <a href="#" class="dropdown-item">Settings</a>
 							      <hr class="dropdown-divider is-black">
-							      <a href="#" class="dropdown-item">Account</a>
-									@role('superadministrator|administrator|editor|author|contributor')
-										<a href="{{ url('/admin')}}" class="dropdown-item">Dashboard</a>
-									@endrole
+									<a href="#" class="dropdown-item">Account</a>
+									@if (Request::segment(1) != "admin")
+										@permission('read-dashboard')
+											<a href="{{ url('/admin')}}" class="dropdown-item">Admin Dashboard</a>
+										@endpermission
+									@endif
 									<a href="{{ url('/logout') }}" class="dropdown-item">Log Out</a>
 							    </div>
 							  </div>
 							</div>
 						@endif
+
+
+
 					</div>
-					<div class="navbar-end ">
-						 <a href="{{route('home')}}" class="{{ Nav::isRoute('home')}} navbar-item is-tab">Home</a>
-						 <a href="#" class="navbar-item is-tab">Community</a>
-						 <a href="#" class="navbar-item is-tab">Work</a>
-						 <a href="#" class="navbar-item is-tab">People</a>
-						 <a href="#" class="navbar-item is-tab">Contact</a>
+					<div class="navbar-end">
+						@if (Request::segment(1) != "admin")
+							 <a href="{{route('home')}}" class="{{ Nav::isRoute('home')}} navbar-item is-tab">Home</a>
+							 <a href="#" class="navbar-item is-tab">Community</a>
+							 <a href="#" class="navbar-item is-tab">Work</a>
+							 <a href="#" class="navbar-item is-tab">People</a>
+							 <a href="#" class="navbar-item is-tab">Contact</a>
+						@else
+							<a href="{{ url('/')}}" class="navbar-item is-tab">Return to Front</a>
+						@endif
 					</div>
 			  </div>
 		 </div>

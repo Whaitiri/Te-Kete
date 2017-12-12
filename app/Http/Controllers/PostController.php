@@ -9,7 +9,7 @@ use App\User;
 use DB;
 
 
-class PostsController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.

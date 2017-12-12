@@ -7,13 +7,43 @@
 		</div>
 	</div>
 	<hr class="m-t-0">
-	<section class="section">
-		<div class="is-pulled-left">
-  			 This will allow you to create and edit users.
-  		</div>
-		<div class="is-pulled-right">
-		 	<a href="{{route('users.index')}}" class="button"> <i class="fa fa-user-add"></i>Manage Users</a>
+	<div class="card m-b-20">
+		<div class="card-content">
+			<h2 class="subtitle">Admin Sections</h2>
+			<hr class="m-t-0">
+			@permission('create-posts')
+
+				<div class="content level ">
+							 This will allow you to create and edit posts
+								<a href="{{route('posts.index')}}" class="button">Manage Posts</a>
+				</div>
+				<hr class="m-t-0">
+			@endpermission
+
+			@permission('create-users')
+				<div class="content level ">
+				  			 This will allow you to create and edit users
+							 	<a href="{{route('users.index')}}" class="button">Manage Users</a>
+				</div>
+				<hr class="m-t-0">
+			@endpermission
+
+			@permission('create-acl')
+				<div class="content level ">
+							 This will allow you to create and edit roles
+								<a href="{{route('roles.index')}}" class="button">Manage Roles</a>
+				</div>
+				<hr class="m-t-0">
+			@endpermission
+
+			@permission('create-acl')
+				<div class="content level ">
+							 This will allow you to create and edit permissions
+								<a href="{{route('permissions.index')}}" class="button">Manage Permissions</a>
+				</div>
+				<hr class="m-t-0">
+			@endpermission
 		</div>
-	</section>
+	</div>
 
 @endsection

@@ -15,12 +15,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->middleware('role:superadministrator|administrator|editor|author|contributor')->group(function () {
+Route::prefix('admin')->middleware('permission:read-dashboard')->group(function () {
 	Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
-	Route::resource('/users', 'UserController');
-	Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
-	Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
-	Route::resourcE('/posts', 'PostsController');
+	Route::resource('/users', 'UserController')->middleware('permission:create-users, read-users, update-users, delete-users');
+	Route::resource('/permissions', 'PermissionController', ['except' => 'destroy'])->middleware('permission:create-acl, read-acl, update-acl, delete-acl');
+	Route::resource('/roles', 'RoleController', ['except' => 'destroy'])->middleware('permission:create-acl, read-acl, update-acl, delete-acl');
+	Route::resource('/posts', 'PostController')->middleware('permission:update-posts');
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
