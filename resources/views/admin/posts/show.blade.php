@@ -6,52 +6,22 @@
 			<h1 class="title">{{$post->display_name}}</h1>
 			<h4 class="subtitle">View Post</h4>
 		</div>
-		<div class="column is-one-fifth">
-			<div class="columns">
-				<div class="column">
-					<a href="{{route('posts.edit', $post->id)}}" class="button">Edit Post</a>
-				</div>
-			</div>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{route('posts.edit', $post->id)}}" class="button">Edit Post</a>
+			<a href="{{route('posts.index')}}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">
 
-	<div class="columns">
-		<div class="column">
-			<div class="card">
-				<div class="card-content">
 
-					<div class="columns">
-						<div class="column is-one-half">
-							<div class="field">
-								<label for="name" class="label">Display Name</label>
-								<p class="control">
-									<pre>{{$post->title}}</pre>
-								</p>
-							</div>
-						</div>
-
-						<div class="column is-one-half">
-							<div class="field">
-								<label for="name" class="label">Slug</label>
-								<p class="control">
-									<pre>{{$post->subtitle}}</pre>
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="field">
-						<label for="name" class="label">Description</label>
-						<p class="control">
-							<pre>{{$user->name}}</pre>
-						</p>
-					</div>
-				</div>
-
-				</div>
+		<div class="card">
+			<div class="card-content">
+				<h2 class="title">{{$post->title}}</h2>
+				<h3 class="subtitle">{{$post->subtitle}}</h3>
+				<p>Author: {{ $user->name }}</p>
+				<p>Posted: {{$post->created_at}}</p><br>
+				<div class="content">{{$post->content}}</div>
 			</div>
 		</div>
-	</div>
 
 @endsection

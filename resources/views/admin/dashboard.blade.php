@@ -9,12 +9,10 @@
 	<hr class="m-t-0">
 	<div class="card m-b-20">
 		<div class="card-content">
-			<h2 class="subtitle">Admin Sections</h2>
-			<hr class="m-t-0">
 			@permission('create-posts')
 
 				<div class="content level ">
-							 This will allow you to create and edit posts
+							 Allows you to create and edit blog posts that can be publish to the site's front.
 								<a href="{{route('posts.index')}}" class="button">Manage Posts</a>
 				</div>
 				<hr class="m-t-0">
@@ -22,7 +20,7 @@
 
 			@permission('create-users')
 				<div class="content level ">
-				  			 This will allow you to create and edit users
+				  			 This will allow you to create and edit users, and assign roles to them.
 							 	<a href="{{route('users.index')}}" class="button">Manage Users</a>
 				</div>
 				<hr class="m-t-0">
@@ -30,7 +28,7 @@
 
 			@permission('create-acl')
 				<div class="content level ">
-							 This will allow you to create and edit roles
+							 This will allow you to create and edit roles, to assign groups of permissions to users.
 								<a href="{{route('roles.index')}}" class="button">Manage Roles</a>
 				</div>
 				<hr class="m-t-0">
@@ -38,7 +36,7 @@
 
 			@permission('create-acl')
 				<div class="content level ">
-							 This will allow you to create and edit permissions
+							 This will allow you to create and edit the permissions that roles are made up of.
 								<a href="{{route('permissions.index')}}" class="button">Manage Permissions</a>
 				</div>
 				<hr class="m-t-0">

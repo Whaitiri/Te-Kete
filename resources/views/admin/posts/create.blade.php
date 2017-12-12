@@ -6,8 +6,8 @@
 			<h1 class="title">Create New Post</h1>
 			<h4 class="subtitle"></h4>
 		</div>
-		<div class="column is-one-fifth">
-			<a href="{{ URL::previous() }}" class="button">Back</a>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{ url()->previous() }}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">

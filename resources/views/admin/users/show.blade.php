@@ -6,6 +6,10 @@
 			<h1 class="title">{{$user->name}}</h1>
 			<h4 class="subtitle">View User</h4>
 		</div>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{route('users.edit', $user->id)}}" class="button">Edit User</a>
+			<a href="{{route('users.index')}}" class="button">Back</a>
+		</div>
 	</div>
 	<hr class="m-t-0">
 

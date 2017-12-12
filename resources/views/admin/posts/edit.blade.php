@@ -6,8 +6,8 @@
 			<h1 class="title">{{$post->display_name}}</h1>
 			<h4 class="subtitle">Edit Posts</h4>
 		</div>
-		<div class="column is-one-fifth">
-			<a href="{{ URL::previous() }}" class="button">Back</a>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{ url()->previous() }}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">
@@ -46,7 +46,8 @@
 						<div class="field">
 							<label for="content" class="label">Content</label>
 							<p class="control">
-								<input type="text" class="input" name="content" id="content" value="{{$post->content}}">
+								<textarea type="textarea" class="textarea" name="content" id="content" rows="12">{{$post->content}}
+								</textarea>
 							</p>
 						</div>
 						<button class="button is-success m-t-10">Edit Post</button>

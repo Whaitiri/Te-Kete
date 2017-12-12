@@ -5,8 +5,9 @@
 		<div class="column">
 			<h1 class="title">Manage Posts</h1>
 		</div>
-		<div class="column is-one-fifth">
-			<a href="{{route('posts.create')}}" class="button"> <i></i> Create Post</a>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{route('posts.create')}}" class="button">Create Post</a>
+			<a href="{{route('admin.dashboard')}}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">
@@ -14,10 +15,11 @@
 	<table class="table adminTable is-narrow">
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Date Created</th>
+				<th>Title</th>
+				<th>Subtitle</th>
+				<th>Author</th>
+				<th>Posted</th>
+				<th>Content</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -25,12 +27,20 @@
 		<tbody>
 			@foreach ($posts as $post)
 				<tr>
-					<th>{{$post->slug}}</th>
-					{{-- <td><a href="{{ route('users.show', $user->id)}}">{{$user->name}}</a></td> --}}
+					<th>{{$post->title}}
+						@if ($post->title != $post->slug)
+							<br><small>{{$post->slug}}</small>
+						@endif
+					</th>
+					<td>{{$post->subtitle}}</td>
 					<td>{{ $users->where('id', $post->author_id)->first()->name }}</td>
-					<td>{{$post->created_at->toFormattedDateString()}} </td>
+					<td>{{$post->created_at}} </td>
 					<td>
-						{{$post->content}}
+						{{ str_limit($post->content, $limit = 100, $end = '...') }}
+					</td>
+					<td>
+						<a href="{{route('posts.show', $post->id)}}" class="button is-small is-outlined">View</a>
+						<a href="{{route('posts.edit', $post->id)}}" class="button is-small is-outlined">Edit</a>
 					</td>
 				</tr>
 			@endforeach

@@ -8,10 +8,13 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
 }
 .dropdown-trigger {
 	cursor: pointer;
+}
+
+.card {
+	background-color: #EEE;
 }
 
 .navbar-burger {

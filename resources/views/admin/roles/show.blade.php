@@ -6,12 +6,9 @@
 			<h1 class="title">{{$role->display_name}}</h1>
 			<h4 class="subtitle">View Role</h4>
 		</div>
-		<div class="column is-one-fifth">
-			<div class="columns">
-				<div class="column">
-					<a href="{{route('roles.edit', $role->id)}}" class="button">Edit Role</a>
-				</div>
-			</div>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{route('roles.edit', $role->id)}}" class="button">Edit Role</a>
+			<a href="{{route('roles.index')}}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">

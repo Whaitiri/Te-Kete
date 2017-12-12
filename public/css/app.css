@@ -16865,11 +16865,14 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
 }
 
 .dropdown-trigger {
   cursor: pointer;
+}
+
+.card {
+  background-color: #EEE;
 }
 
 .navbar-burger {
@@ -17461,25 +17464,10 @@ a.is-active {
 }
 
 #adminSideMenu {
-  position: fixed;
-  left: -200px;
-  top: 92px;
   width: 200px;
   background-color: #b0bcad;
   height: 100%;
   bottom: 0;
-}
-
-@media screen and (min-width: 1024px) {
-  #adminSideMenu {
-    position: static;
-    width: 200px;
-  }
-}
-
-#adminSideMenu.is-active {
-  left: 0px;
-  height: 100vh;
   z-index: 100;
 }
 

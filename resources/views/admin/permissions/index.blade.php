@@ -5,14 +5,13 @@
 		<div class="column">
 			<h1 class="title">Manage Permissions</h1>
 		</div>
-		<div class="column is-one-fifth">
-			<a href="{{route('permissions.create')}}" class="button"> <i></i> Create Permission</a>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{route('permissions.create')}}" class="button">Create Permission</a>
+			<a href="{{route('admin.dashboard')}}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">
 
-		<div class="card m-b-20">
-			<div class="card-content">
 				<table class="table adminTable is-narrow">
 					<thead>
 						<tr>
@@ -41,8 +40,6 @@
 						@endforeach
 					</tbody>
 				</table>
-			</div>
-		</div>
 
 		{{-- {{$permissions->links()}} --}}
 	</div>

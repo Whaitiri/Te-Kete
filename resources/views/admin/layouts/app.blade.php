@@ -2,8 +2,8 @@
 <body>
    <div id="app">
 		@include('layouts.components.navbar')
-      <div class="columns">
-         <div id="sidebarColumn" class="column is-one-fifth is-gapless">
+      <div class="columns is-gapless">
+         <div id="sidebarColumn" class="column is-one-fifth">
             @include('admin.layouts.components.sidebar')
          </div>
          <div class="column">

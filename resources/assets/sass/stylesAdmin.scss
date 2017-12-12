@@ -1,23 +1,9 @@
 #adminSideMenu {
-	position: fixed;
-	left:-200px;
-	top:92px;
 	width: 200px;
 	background-color: lighten($primary, 10%);
 	height: 100%;
 	bottom: 0;
-
-
-	@include desktop {
-		position: static;
-		width: 200px;
-	}
-
-	&.is-active{
-		left:0px;
-		height: 100vh;
-		z-index:100;
-	}
+	z-index:100;
 }
 
 #sidebarColumn {

@@ -5,14 +5,13 @@
 		<div class="column">
 			<h1 class="title">Manage Users</h1>
 		</div>
-		<div class="column is-one-fifth">
-			<a href="{{route('users.create')}}" class="button"> <i class="fa fa-user-add"></i> Create User</a>
+		<div class="buttons is-pulled-right m-r-20">
+			<a href="{{route('users.create')}}" class="button">Create User</a>
+			<a href="{{route('admin.dashboard')}}" class="button">Back</a>
 		</div>
 	</div>
 	<hr class="m-t-0">
 
-		<div class="card m-b-20">
-			<div class="card-content">
 				<table class="table adminTable is-narrow">
 					<thead>
 						<tr>
@@ -39,8 +38,6 @@
 						@endforeach
 					</tbody>
 				</table>
-			</div>
-		</div>
 
 		{{$users->links()}}
 	</div>
