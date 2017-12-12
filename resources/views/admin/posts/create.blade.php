@@ -27,11 +27,11 @@
 						</div>
 
 						<div class="field">
-							<label for="title" class="label">Post Slug</label>
-							<p class="control">
-								<input type="text" :value="compTitleSlug" class="input" name="titleSlug" readonly>
-							</p>
-						</div>
+									<label for="subtitle" class="label">Post Subtitle</label>
+									<p class="control">
+										<input type="text" class="input" name="subtitle" id="subtitle">
+									</p>
+								</div>
 
 						<div class="columns">
 
@@ -47,12 +47,12 @@
 							</div>
 
 							<div class="column is-one-half">
-								<div class="field">
-									<label for="subtitle" class="label">Post Subtitle</label>
-									<p class="control">
-										<input type="text" class="input" name="subtitle" id="subtitle">
-									</p>
-								</div>
+														<div class="field">
+							<label for="title" class="label">Post Slug <small><em>(generated from title)</em></small></label>
+							<p class="control">
+								<input type="text" :value="compTitleSlug" class="input" name="titleSlug" disabled>
+							</p>
+						</div>
 							</div>
 
 						</div>
@@ -60,7 +60,8 @@
 						<div class="field">
 							<label for="description" class="label">Post Content</label>
 							<p class="control">
-								<input type="text" class="input" name="content" id="content">
+								<textarea type="textarea" class="textarea" name="content" id="content" rows="12">
+								</textarea>
 							</p>
 						</div>
 						<input type="hidden" name="status" id="status" value="1">
@@ -87,7 +88,25 @@
 			},
 			computed: {
 				compTitleSlug: function() {
-					return this.title
+
+					function string_to_slug (str) {
+					    str = str.replace(/^\s+|\s+$/g, ''); // trim
+					    str = str.toLowerCase();
+					  
+					    // remove accents, swap ñ for n, etc
+					    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+					    var to   = "aaaaeeeeiiiioooouuuunc------";
+					    for (var i=0, l=from.length ; i<l ; i++) {
+					        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+					    }
+
+					    str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+					        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+					        .replace(/-+/g, '-'); // collapse dashes
+
+					    return str;
+					}
+					return string_to_slug(this.title);
 				}
 			}
 	  	});

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Post;
 use App\User;
+use App\SlugCreator;
 use DB;
 
 
@@ -50,9 +51,10 @@ class PostController extends Controller
       //      'subtitle' => 'required|max:255',
       //      'content' => 'required',
       //
+
          $post = new Post();
          $post->title = $request->title;
-         $post->slug = $request->titleSlug;
+         $post->slug = SlugCreator::createSlug($request);
          $post->author_id = $request->author_id;
          $post->subtitle = $request->subtitle;
          $post->content = $request->content;
