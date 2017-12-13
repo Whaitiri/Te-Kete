@@ -24,3 +24,5 @@ Route::prefix('admin')->middleware('permission:read-dashboard')->group(function 
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/posts/{slug}', 'PostController@slugPage');

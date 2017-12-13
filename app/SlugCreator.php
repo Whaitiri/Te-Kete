@@ -20,10 +20,10 @@ class SlugCreator extends Model
         $slugNumber = false;
         $i = 0;
 
-        while (!slugNumber) {
-        	$i++;
-            $newSlug = $slug.'-'.;
-            if (! $allSlugs->contains('slug', $newSlug)) {
+        while (!$slugNumber) {
+            $newSlug = $slug.'-'.$i;
+            $i++;
+            if (!$allSlugs->contains('slug', $newSlug)) {
                 $slugNumber = true;
             }
         }

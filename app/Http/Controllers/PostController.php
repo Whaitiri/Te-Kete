@@ -8,6 +8,7 @@ use App\Post;
 use App\User;
 use App\SlugCreator;
 use DB;
+use Route;
 
 
 class PostController extends Controller
@@ -113,6 +114,23 @@ class PostController extends Controller
         return redirect()->route('posts.show', $id);
     }
 
+    public function getRouteKeyName()
+   {
+      return 'slug';
+   }
+
+    public function slugPage(Post $posts)
+   {
+      $currentSlug = Route::current()->slug;
+   	$post = Post::where('slug', '=', $currentSlug)->first();
+      if ($post) {
+         $user = User::where('id', '=', $post->author_id)->first();
+      	return view("admin.posts.show")->withPost($post)->withUser($user);
+      } else {
+         abort(404);
+      }
+
+   }
     /**
      * Remove the specified resource from storage.
      *

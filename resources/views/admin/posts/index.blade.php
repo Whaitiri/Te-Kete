@@ -40,6 +40,7 @@
 					</td>
 					<td>
 						<a href="{{route('posts.show', $post->id)}}" class="button is-small is-outlined">View</a>
+						<a href="/posts/{{$post->slug}}" class="button is-small is-outlined">View2</a>
 						<a href="{{route('posts.edit', $post->id)}}" class="button is-small is-outlined">Edit</a>
 					</td>
 				</tr>
