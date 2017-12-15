@@ -29,7 +29,7 @@
 				<tr>
 					<td><strong>{{$post->title}}</strong>
 						@if ($post->title != $post->slug)
-							<br><small><em>({{$post->slug}})</em></small>
+							<br><small><em>(<a href="/{{$post->slug}}">{{$post->slug}}</a>)</em></small>
 						@endif
 					</td>
 					<td class="contentCell">{{$post->subtitle}}</td>
@@ -40,7 +40,7 @@
 					</td>
 					<td>
 						<a href="{{route('posts.show', $post->id)}}" class="button is-small is-outlined">View</a>
-						<a href="/posts/{{$post->slug}}" class="button is-small is-outlined">View2</a>
+						<a href="/{{$post->slug}}" class="button is-small is-outlined">View2</a>
 						<a href="{{route('posts.edit', $post->id)}}" class="button is-small is-outlined">Edit</a>
 					</td>
 				</tr>

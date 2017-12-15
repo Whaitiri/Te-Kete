@@ -125,7 +125,7 @@ class PostController extends Controller
    	$post = Post::where('slug', '=', $currentSlug)->first();
       if ($post) {
          $user = User::where('id', '=', $post->author_id)->first();
-      	return view("admin.posts.show")->withPost($post)->withUser($user);
+      	return view("layouts.post")->withPost($post)->withUser($user);
       } else {
          abort(404);
       }

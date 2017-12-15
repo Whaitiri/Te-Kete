@@ -7,7 +7,9 @@ $(document).ready(function(){
 	})
 })
 
-slideoutButton.onclick = function() {
-	this.classList.toggle('is-active');
-	document.getElementById('adminSideMenu').classList.toggle('is-active');
-}
+// while (slideoutButton) {
+// 	slideoutButton.onclick = function() {
+// 		this.classList.toggle('is-active');
+// 		document.getElementById('adminSideMenu').classList.toggle('is-active');
+// 	}
+// }

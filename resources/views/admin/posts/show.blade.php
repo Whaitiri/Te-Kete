@@ -20,7 +20,7 @@
 				<h3 class="subtitle">{{$post->subtitle}}</h3>
 				<p>Author: {{ $user->name }}</p>
 				<p>Posted: {{$post->created_at}}</p><br>
-				<div class="content">{{$post->content}}</div>
+				<div class="content">{!!html_entity_decode($post->content)!!}</div>
 			</div>
 		</div>
 
