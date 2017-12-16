@@ -51,6 +51,8 @@
 							</p>
 						</div>
 						<button class="button is-success m-t-10">Edit Post</button>
+						<a href="{{ url()->previous() }}" class="button m-t-10">Back</a>
+						<a class="modalToggle button is-danger is-pulled-right m-t-10">Delete Post</a>
 
 				</div>
 				</div>
@@ -58,6 +60,21 @@
 		</div>
 	</form>
 
+@endsection
+
+@section('modal')
+
+	<div class="notification">
+		<strong>Are you sure you want to delete this? This cannot be undone.</strong>
+		<form action="{{route('posts.destroy', $post->id)}}" method="POST">
+			{{ csrf_field() }}
+			<input type="hidden" name="_method" value="DELETE" />
+			<button type="submit" class="button is-danger m-t-10">Delete Post</button>
+			<a class="modalToggle button m-t-10">Go Back</a>
+		</form>
+
+
+	</div>
 @endsection
 
 @section('scripts')

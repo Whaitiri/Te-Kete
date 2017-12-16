@@ -16,4 +16,5 @@
 
 		 </div>
    </div>
+   @include('layouts.components.modal')
    @include('layouts.components.footer')

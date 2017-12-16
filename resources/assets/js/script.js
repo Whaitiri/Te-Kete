@@ -5,11 +5,10 @@ $(document).ready(function(){
 	$(".dropdown-trigger").click(function(){
 		$(".dropdown").toggleClass("is-active");
 	})
-})
 
-// while (slideoutButton) {
-// 	slideoutButton.onclick = function() {
-// 		this.classList.toggle('is-active');
-// 		document.getElementById('adminSideMenu').classList.toggle('is-active');
-// 	}
-// }
+	$(".modalToggle, .modal-close, .modal-background").click(function(){
+		event.preventDefault();
+		$("#modalContainer").toggleClass("is-active");
+	})
+
+})

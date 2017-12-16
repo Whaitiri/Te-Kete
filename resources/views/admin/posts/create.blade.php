@@ -68,6 +68,7 @@
 						<input type="hidden" name="type" id="type" value="1">
 						<input type="hidden" name="comment_count" id="comment_count" value="0">
 						<button class="button is-success m-t-10">Create Post</button>
+						<a href="{{ url()->previous() }}" class="button m-t-10">Back</a>
 
 				</div>
 				</div>
@@ -92,7 +93,7 @@
 					function string_to_slug (str) {
 					    str = str.replace(/^\s+|\s+$/g, ''); // trim
 					    str = str.toLowerCase();
-					  
+
 					    // remove accents, swap ñ for n, etc
 					    var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
 					    var to   = "aaaaeeeeiiiioooouuuunc------";
