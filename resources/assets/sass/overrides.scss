@@ -17,6 +17,10 @@ small {
 	font-size: 0.7rem;
 }
 
+.title, .subtitle {
+	word-break: normal;
+}
+
 .contentCell {
 	word-break:break-all;
 	word-wrap: break-word;

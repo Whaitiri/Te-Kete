@@ -1,5 +1,5 @@
 
-<footer class="footer has-shadow">
+<footer class="footer has-shadow customFooter">
 		<div class="content has-text-centered">
 			<p>
 				Tuterangiwhaitiri Pleydell<br>

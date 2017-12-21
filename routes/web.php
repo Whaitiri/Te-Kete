@@ -21,6 +21,7 @@ Route::prefix('admin')->middleware('permission:read-dashboard')->group(function 
 	Route::resource('/permissions', 'PermissionController', ['except' => 'destroy'])->middleware('permission:create-acl, read-acl, update-acl, delete-acl');
 	Route::resource('/roles', 'RoleController', ['except' => 'destroy'])->middleware('permission:create-acl, read-acl, update-acl, delete-acl');
 	Route::resource('/posts', 'PostController')->middleware('permission:update-posts');
+	Route::resource('/styles', 'StyleController');
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

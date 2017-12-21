@@ -8,6 +8,7 @@
 require('./bootstrap');
 require('./bulma');
 require('./script');
+require('./jscolor');
 
 window.Vue = require('vue');
 import Buefy from 'buefy';

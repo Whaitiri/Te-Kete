@@ -27,7 +27,6 @@
                         @endif
 
                      </div>
-                     <b-checkbox class="m-t-10" name="remember">Remember Me</b-checkbox>
 
                      <button class="button is-outlined is-fullwidth is-right m-t-15">Log in</button>
                   </form>
@@ -39,9 +38,4 @@
 @endsection
 
 @section('scripts')
-  <script>
-    var app = new Vue({
-      el: '#app'
-    });
-  </script>
 @endsection

@@ -1,4 +1,4 @@
-<nav class="navbar is-primary has-shadow">
+<nav class="navbar is-primary has-shadow customNavbar">
 		 <div class="container">
 			  <div class="navbar-brand">
 					<a href="{{route('home')}}" class="navbar-item">
@@ -26,7 +26,7 @@
 						@else
 							<div class="navbar-item is-tab dropdown">
 							  <div class="dropdown-trigger">
-							      <span>{{Auth::user()->name}}</span>
+							      <a>{{Auth::user()->name}}</a>
 							      <span class="icon is-small">
 							        <i class="fa fa-angle-down" aria-hidden="true"></i>
 							      </span>

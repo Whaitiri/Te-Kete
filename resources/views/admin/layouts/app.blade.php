@@ -6,7 +6,7 @@
          <div id="sidebarColumn" class="column is-one-fifth">
             @include('admin.layouts.components.sidebar')
          </div>
-         <div class="column">
+         <div class="column customBody">
             <div class="container is-fluid">
                   @yield('content')
             </div>

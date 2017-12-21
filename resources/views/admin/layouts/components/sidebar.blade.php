@@ -1,4 +1,4 @@
-	<aside id="adminSideMenu" class="sideMenu menu p-l-25 p-r-25 p-t-10">
+	<aside id="adminSideMenu" class="sideMenu menu p-l-25 p-r-25 p-t-10 customAdmin">
 		<p class="menu-label ">General</p>
 		<ul class="menu-list">
 			<li><a class="m-r-15 {{ Nav::isRoute('admin.dashboard')}}" href="{{route('admin.dashboard')}}">Dashboard</a></li>
@@ -8,6 +8,7 @@
 			<p class="menu-label ">Content</p>
 			<ul class="menu-list">
 				<li><a class="m-r-15 {{ Nav::isResource('posts')}}" href="{{route('posts.index')}}">Posts</a></li>
+				<li><a class="m-r-15 {{ Nav::isResource('styles')}}" href="{{route('styles.index')}}">Customise</a></li>
 			</ul>
 		@endpermission
 
