@@ -27,10 +27,9 @@
 		<tbody>
 			@foreach ($posts as $post)
 				<tr>
-					<td><strong>{{$post->title}}</strong>
-						@if ($post->title != $post->slug)
-							<br><small><em>(<a href="/{{$post->slug}}">{{$post->slug}}</a>)</em></small>
-						@endif
+					<td>
+						<strong>{{$post->title}}</strong>
+						<br><small><em>(<a href="/{{$post->slug}}">{{$post->slug}}</a>)</em></small>
 					</td>
 					<td class="contentCell">{{$post->subtitle}}</td>
 					<td>{{ $users->where('id', $post->author_id)->first()->name }}</td>
