@@ -15,7 +15,7 @@
 
 	<div class="columns">
 		<div class="column">
-			<div class="card">
+			<div class="card customCard">
 				<div class="card-content">
 
 					<div class="field">
@@ -54,7 +54,7 @@
 
 				</div>
 			</div>
-			<div class="card">
+			<div class="card customCard">
 				<div class="card-content">
 					<a href="{{route('users.edit', $user->id)}}" class="button is-medium is-outlined">Edit</a>
 					<a href="{{route('users.index')}}" class="button is-outlined is-medium is-pulled-right">Go Back</a>

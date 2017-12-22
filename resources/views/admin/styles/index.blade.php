@@ -16,63 +16,27 @@
 
 		<div class="columns">
 			<div class="column">
-				<div class="card">
+				<div class="card customCard">
 					<div class="card-content">
 
-
-						<p class="title">Colors</p>
 						{{--  section start --}}
-						<div class="columns">
-							<div class="column is-2">
-								<p class="subtitle">Navigation</p>
-							</div>
-							<div class="column is-10">
-
 								<div class="columns is-multiline">
-
-									<div class="column is-one-third-tablet is-one-quarter-desktop">
-										<div class="field">
-											<label for="name" class="label">Background</label>
-											<p class="control">
-												<input class="input jscolor" name="navBGColor" id="navBGColor" value="{{ $styles[0]->value }}">
-											</p>
+									@foreach ($styles as $style)
+										<div class="column is-one-third-tablet is-one-quarter-desktop">
+											<div class="field">
+												<label for="name" class="label">{{ $style->title }}</label>
+												<p class="control">
+													<input class="input jscolor" name="{{ $style->slug }}" id="{{ $style->slug }}" value="{{ $style->value }}">
+												</p>
+											</div>
 										</div>
-									</div>
-
-									<div class="column is-one-third-tablet is-one-quarter-desktop">
-										<div class="field">
-											<label for="name" class="label">Font</label>
-											<p class="control">
-												<input class="input jscolor" name="navFontColor" id="navFontColor" value="{{ $styles[1]->value }}">
-											</p>
-										</div>
-									</div>
-
-									<div class="column is-one-third-tablet is-one-quarter-desktop">
-										<div class="field">
-											<label for="name" class="label">Hover</label>
-											<p class="control">
-												<input class="input jscolor" name="navHoverColor" id="navHoverColor" value="{{ $styles[2]->value }}">
-											</p>
-										</div>
-									</div>
-
-									<div class="column is-one-third-tablet is-one-quarter-desktop">
-										<div class="field">
-											<label for="name" class="label">Hover Font</label>
-											<p class="control">
-												<input class="input jscolor" name="navHoverFontColor" id="navHoverFontColor" value="{{ $styles[3]->value }}">
-											</p>
-										</div>
-									</div>
+									@endforeach
 
 								</div>
-							</div>
-						</div>
 						{{--  section end --}}
 
 						{{--  section start --}}
-						<div class="columns">
+						{{-- <div class="columns">
 							<div class="column is-2">
 								<p class="subtitle">Body</p>
 							</div>
@@ -90,6 +54,33 @@
 
 									<div class="column is-one-third-tablet is-one-quarter-desktop">
 										<div class="field">
+											<label for="name" class="label">Card Background</label>
+											<p class="control">
+												<input class="input jscolor" name="cardBGColor" id="cardBGColor" value="{{ $styles[5]->value }}">
+											</p>
+											</div>
+									</div>
+
+									<div class="column is-one-third-tablet is-one-quarter-desktop">
+										<div class="field">
+											<label for="name" class="label">Title</label>
+											<p class="control">
+												<input class="input jscolor" name="bodyTitleColor" id="bodyTitleColor" value="{{ $styles[5]->value }}">
+											</p>
+											</div>
+									</div>
+
+									<div class="column is-one-third-tablet is-one-quarter-desktop">
+										<div class="field">
+											<label for="name" class="label">Subtitle</label>
+											<p class="control">
+												<input class="input jscolor" name="bodySubtitleColor" id="bodySubtitleColor" value="{{ $styles[5]->value }}">
+											</p>
+											</div>
+									</div>
+
+									<div class="column is-one-third-tablet is-one-quarter-desktop">
+										<div class="field">
 											<label for="name" class="label">Font</label>
 											<p class="control">
 												<input class="input jscolor" name="bodyFontColor" id="bodyFontColor" value="{{ $styles[5]->value }}">
@@ -99,11 +90,11 @@
 
 								</div>
 							</div>
-						</div>
+						</div> --}}
 						{{--  section end --}}
 
 						{{--  section start --}}
-						<div class="columns">
+						{{-- <div class="columns">
 							<div class="column is-2">
 								<p class="subtitle">Footer</p>
 							</div>
@@ -148,11 +139,11 @@
 
 								</div>
 							</div>
-						</div>
+						</div> --}}
 						{{--  section end --}}
 
 						{{--  section start --}}
-						<div class="columns">
+						{{-- <div class="columns">
 							<div class="column is-2">
 								<p class="subtitle">Admin Panel</p>
 							</div>
@@ -197,7 +188,7 @@
 
 								</div>
 							</div>
-						</div>
+						</div> --}}
 						{{--  section end --}}
 						<button class="button is-success m-t-10">Edit Role</button>
 						<hr class="m-t-0">

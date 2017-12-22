@@ -9,7 +9,7 @@
    </div>
 </section>
 
-<div class="card">
+<div class="card customCard">
    <div class="card-image">
       <img src="{{asset('img/logo_full.png')}}" alt="">
 

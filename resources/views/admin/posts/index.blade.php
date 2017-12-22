@@ -27,9 +27,8 @@
 		<tbody>
 			@foreach ($posts as $post)
 				<tr>
-					<td>
-						<strong>{{$post->title}}</strong>
-						<br><small><em>(<a href="/{{$post->slug}}">{{$post->slug}}</a>)</em></small>
+					<td>{{$post->title}}
+						<br><small><em>({{$post->slug}})</em></small>
 					</td>
 					<td class="contentCell">{{$post->subtitle}}</td>
 					<td>{{ $users->where('id', $post->author_id)->first()->name }}</td>
@@ -39,7 +38,7 @@
 					</td>
 					<td>
 						<a href="{{route('posts.show', $post->id)}}" class="button is-small is-outlined">View</a>
-						<a href="/{{$post->slug}}" class="button is-small is-outlined">View2</a>
+						<a href="/{{$post->slug}}" class="button is-small is-outlined">Page View</a>
 						<a href="{{route('posts.edit', $post->id)}}" class="button is-small is-outlined">Edit</a>
 					</td>
 				</tr>

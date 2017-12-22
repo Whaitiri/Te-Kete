@@ -15,7 +15,7 @@
 
 		<div class="columns">
 			<div class="column">
-				<div class="card">
+				<div class="card customCard">
 					<div class="card-content">
 
 							<div class="field">
@@ -43,7 +43,7 @@
 					</div>
 				</div>
 
-				<div class="card">
+				<div class="card customCard">
 					<div class="card-content">
 						<label for="roles" class="label">Roles</label>
 						<input type="hidden" name="roles" :value="rolesSelected" />

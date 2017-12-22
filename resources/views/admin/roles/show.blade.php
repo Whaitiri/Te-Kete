@@ -15,7 +15,7 @@
 
 	<div class="columns">
 		<div class="column">
-			<div class="card">
+			<div class="card customCard">
 				<div class="card-content">
 
 					<div class="columns">
@@ -45,7 +45,7 @@
 						</p>
 					</div>
 				</div>
-				<div class="card">
+				<div class="card customCard">
 					<div class="card-content">
 						<label for="permissions" class="label">Permissions</label>
 							<ul>

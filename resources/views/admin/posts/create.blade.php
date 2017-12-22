@@ -16,7 +16,7 @@
 
 		<div class="columns">
 			<div class="column">
-				<div class="card">
+				<div class="card customCard">
 					<div class="card-content">
 
 						<div class="field">

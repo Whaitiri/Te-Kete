@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<hr class="m-t-0">
-	<div class="card m-b-20">
+	<div class="card customCard m-b-20">
 		<div class="card-content">
 			@permission('create-posts')
 

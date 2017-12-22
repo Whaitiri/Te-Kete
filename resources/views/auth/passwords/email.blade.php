@@ -11,7 +11,7 @@
    
    <div class="columns">
       <div class="column is-one-third is-offset-one-third authContainer">
-         <div class="card">
+         <div class="card customCard">
             <div class="card-content">
                <h1 class="title is-heading">Forgot Password</h1>
 

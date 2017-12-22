@@ -14,7 +14,7 @@
 	<hr class="m-t-0">
 
 
-		<div class="card">
+		<div class="card customCard">
 			<div class="card-content">
 				<h2 class="title">{{$post->title}}</h2>
 				<h3 class="subtitle">{{$post->subtitle}}</h3>

@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "ckeditor/ckeditor": "^4.8",
         "devmarketer/easynav": "^1.0",
         "fideloper/proxy": "~3.3",
         "intervention/image": "~2.4.1",

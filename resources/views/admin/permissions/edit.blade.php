@@ -14,7 +14,7 @@
 
 	<div class="columns">
 		<div class="column">
-			<div class="card">
+			<div class="card customCard">
 				<div class="card-content">
 
 					<form action="{{route('permissions.update', $permission->id)}}" method="POST">

@@ -16,7 +16,7 @@
 
 		<div class="columns">
 			<div class="column">
-				<div class="card">
+				<div class="card customCard">
 					<div class="card-content">
 
 						<div class="columns">
@@ -51,7 +51,7 @@
 
 				</div>
 
-					<div class="card">
+					<div class="card customCard">
 						<div class="card-content">
 							<h2 class="title is-4">Permissions:</h2>
 								@foreach ($permissions as $permission)

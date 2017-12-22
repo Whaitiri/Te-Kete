@@ -12,6 +12,11 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
+      
+      //this is used to create a bunch of example posts for testing. it is still available by running:
+      //    php artisan db:seed --class PostSeeder
+      //in your terminal
+
       for ($i=0; $i < 15; $i++) {
         DB::table('posts')->insert([
              'slug' => str_random(12),

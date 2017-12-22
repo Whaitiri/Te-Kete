@@ -13,7 +13,7 @@
 
 	<div class="columns">
 		<div class="column">
-			<div class="card">
+			<div class="card customCard">
 				<div class="card-content">
 					<form action="{{route('permissions.store')}}" method="POST">
 						{{csrf_field()}}

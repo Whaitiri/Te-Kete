@@ -10,7 +10,7 @@
 
    <div class="columns">
       <div class="column is-one-third is-offset-one-third authContainer">
-         <div class="card">
+         <div class="card customCard">
             <div class="card-content">
                <h1 class="title is-heading">Reset Password</h1>
                   <form action="{{route('password.request')}}" method="POST" role="form">

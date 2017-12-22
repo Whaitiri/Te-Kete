@@ -15,6 +15,8 @@ class Style extends Migration
     {
          Schema::create('customstyles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
+            $table->string('title');
             $table->string('selector');
             $table->string('property');
             $table->string('value');
@@ -28,6 +30,6 @@ class Style extends Migration
      */
     public function down()
     {
-        //
+         Schema::dropIfExists('customstyles');
     }
 }
