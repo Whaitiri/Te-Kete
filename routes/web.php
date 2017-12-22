@@ -17,8 +17,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/community', 'HomeController@community')->name('community');
 Route::get('/work', 'HomeController@work')->name('work');
-Route::get('/contact', 'HomeController@contact')->name('contact');
-
+Route::get('/contactus', 'ContactController@create')->name('contact');
+Route::post('/contactus/submit', 'ContactController@save')->name('contactStore');
 
 
 Route::prefix('admin')->middleware('permission:read-dashboard')->group(function () {
@@ -28,7 +28,9 @@ Route::prefix('admin')->middleware('permission:read-dashboard')->group(function 
 	Route::resource('/roles', 'RoleController', ['except' => 'destroy'])->middleware('permission:create-acl, read-acl, update-acl, delete-acl');
 	Route::resource('/posts', 'PostController')->middleware('permission:update-posts');
 	Route::resource('/styles', 'StyleController')->middleware('permission:update-styles');
+	Route::resource('/contact', 'ContactController', ['except' => ['store', 'show', 'edit', 'update']])->middleware('permission:read-contact');
 });
+
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

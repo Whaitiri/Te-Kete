@@ -11,4 +11,8 @@ $(document).ready(function(){
 		$("#modalContainer").toggleClass("is-active");
 	})
 
+	$(".notification .delete").click(function(){
+		$(this).parent().detach();
+	})
+
 })

@@ -18,6 +18,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
       $posts = Post::paginate(10);
@@ -45,7 +46,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-   
+
       //   $this->validate($request, [
       //      'title' => 'required|max:255',
       //      'slug' => 'required|max:255|unique:posts',
@@ -114,6 +115,12 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->content = $request->content;
+        if ($request->status == 'on') {
+           $post->status = 1;
+        } else {
+           $post->status = 0;
+        }
+        $post->type = $request->type;
         $post->save();
 
         return redirect()->route('posts.show', $id);
@@ -148,7 +155,6 @@ class PostController extends Controller
       $post->delete();
 
       //redirect
-      Session::flash('message', 'Deleted post successfully');
       return redirect()->route('posts.index');
     }
 }

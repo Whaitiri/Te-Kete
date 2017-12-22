@@ -85,8 +85,7 @@
 						<div class="field">
 							<label for="description" class="label">Post Content</label>
 							<p class="control">
-								<textarea type="textarea" class="my-editor textarea" name="content" id="content" rows="12">
-								</textarea>
+								<textarea type="textarea" class="my-editor textarea" name="content" id="content" rows="12"></textarea>
 							</p>
 						</div>
 						<input type="hidden" name="comment_count" id="comment_count" value="0">

@@ -8,14 +8,16 @@ return [
             'profile' => 'r,u',
             'posts' => 'c,r,u,d,p',
             'dashboard' => 'r',
-            'styles' => 'u'
+            'styles' => 'u',
+            'contact' => 'r'
         ],
         'administrator' => [
             'users' => 'c,r,u,d',
             'posts' => 'c,r,u,d,p',
             'dashboard' => 'r',
             'profile' => 'r,u',
-            'styles' => 'u'
+            'styles' => 'u',
+            'contact' => 'r'
         ],
         'editor' => [
             'posts' => 'c,r,u,p',

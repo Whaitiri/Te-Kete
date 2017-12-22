@@ -51,9 +51,9 @@
 					<div class="navbar-end">
 						@if (Request::segment(1) != "admin")
 							 <a href="{{route('home')}}" class="{{ Nav::isRoute('home')}} navbar-item is-tab">Home</a>
-							 <a href="/community" class="{{ Nav::isRoute('community')}} navbar-item is-tab">Community</a>
-							 <a href="/work" class="{{ Nav::isRoute('work')}} navbar-item is-tab">Work</a>
-							 <a href="/contact" class="{{ Nav::isRoute('contact')}} navbar-item is-tab">Contact</a>
+							 <a href="{{route('community')}}" class="{{ Nav::isRoute('community')}} navbar-item is-tab">Community</a>
+							 <a href="{{route('work')}}" class="{{ Nav::isRoute('work')}} navbar-item is-tab">Work</a>
+							 <a href="{{route('contact')}}" class="{{ Nav::isRoute('contact')}} navbar-item is-tab">Contact</a>
 						@else
 							<a href="{{ url('/')}}" class="navbar-item is-tab">Return to Front</a>
 						@endif

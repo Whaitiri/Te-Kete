@@ -17514,6 +17514,10 @@ img.homeHero {
   min-height: 440px;
 }
 
+.postContent {
+  line-height: 1.3;
+}
+
 #adminSideMenu {
   width: 200px;
   background-color: #b0bcad;

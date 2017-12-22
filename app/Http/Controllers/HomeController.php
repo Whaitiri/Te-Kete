@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use App\Contact;
 
 class HomeController extends Controller
 {
@@ -29,18 +31,15 @@ class HomeController extends Controller
 
    public function community()
    {
-      $posts = Post::where('type', 0)->where('status', 1)->get();
-      return view('tekete.community')->withPosts($posts);
+      $posts = Post::where('type', 0)->where('status', 1)->orderBy('created_at','DESC')->get();
+      $users = User::with('post')->get();
+      return view('tekete.community', compact('users'))->withPosts($posts);
    }
 
    public function work()
    {
-      $posts = Post::where('type', 1)->where('status', 1)->get();
-      return view('tekete.work')->withPosts($posts);
-   }
-
-   public function contact()
-   {
-      return view('tekete.contact');
+      $posts = Post::where('type', 1)->where('status', 1)->orderBy('created_at','DESC')->get();
+      $users = User::with('post')->get();
+      return view('tekete.work', compact('users'))->withPosts($posts);
    }
 }

@@ -4,7 +4,7 @@
 			<li><a class="m-r-15 {{ Nav::isRoute('admin.dashboard')}}" href="{{route('admin.dashboard')}}">Dashboard</a></li>
 		</ul>
 
-		@permission('update-posts|update-styles')
+		@permission('update-posts|update-styles|read-contact')
 			<p class="menu-label ">Content</p>
 			<ul class="menu-list">
 				@permission('create-users')
@@ -12,6 +12,9 @@
 				@endpermission
 				@permission('update-styles')
 					<li><a class="m-r-15 {{ Nav::isResource('styles')}}" href="{{route('styles.index')}}">Customise</a></li>
+				@endpermission
+				@permission('read-contact')
+					<li><a class="m-r-15 {{ Nav::isResource('contact')}}" href="{{route('contact.index')}}">Contact Messages</a></li>
 				@endpermission
 			</ul>
 		@endpermission

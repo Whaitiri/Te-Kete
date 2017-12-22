@@ -7,10 +7,10 @@
 		</div>
 	</div>
 	<hr class="m-t-0">
-	<div class="card customCard m-b-20">
+	<div class="card customCard">
 		<div class="card-content">
-			@permission('create-posts')
 
+			@permission('create-posts')
 				<div class="content level ">
 							 This allows you to create and edit blog posts that can be publish to the site's front.
 								<a href="{{route('posts.index')}}" class="button">Manage Posts</a>
@@ -22,6 +22,14 @@
 				<div class="content level ">
 				  			 This allows you to customise the styling of the site.
 							 	<a href="{{route('styles.index')}}" class="button">Manage Styles</a>
+				</div>
+				<hr class="m-t-0">
+			@endpermission
+
+			@permission('read-contact')
+				<div class="content level ">
+							 This allows you to view messages left on the Contact section of the site.
+								<a href="{{route('styles.index')}}" class="button">Manage Contact Messages</a>
 				</div>
 				<hr class="m-t-0">
 			@endpermission

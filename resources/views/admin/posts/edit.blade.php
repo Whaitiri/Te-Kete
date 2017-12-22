@@ -77,8 +77,7 @@
 						<div class="field">
 							<label for="content" class="label">Content</label>
 							<p class="control">
-								<textarea type="textarea" class="my-editor textarea" name="content" id="content" rows="12">{{$post->content}}
-								</textarea>
+								<textarea type="textarea" class="my-editor textarea" name="content" id="content" rows="12">{{$post->content}}</textarea>
 							</p>
 						</div>
 						<button class="button is-success m-t-10">Edit Post</button>
