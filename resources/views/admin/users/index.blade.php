@@ -3,7 +3,7 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">Manage Users</h1>
+			<h1 class="title customTitle">Manage Users</h1>
 		</div>
 		<div class="buttons is-pulled-right m-r-20">
 			<a href="{{route('users.create')}}" class="button">Create User</a>

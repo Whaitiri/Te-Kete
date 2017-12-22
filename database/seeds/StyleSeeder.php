@@ -115,6 +115,14 @@ class StyleSeeder extends Seeder
            'value' => '#4a4a4a'
         ]);
 
+        DB::table('customstyles')->insert([
+           'slug' => 'adminTitleColor',
+           'title' => 'Admin Title Color',
+           'selector' => '.customTitle',
+           'property' => 'color',
+           'value' => '#363636'
+        ]);
+
 
     }
 }

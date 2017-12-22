@@ -3,7 +3,7 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">Manage Posts</h1>
+			<h1 class="title customTitle">Manage Posts</h1>
 		</div>
 		<div class="buttons is-pulled-right m-r-20">
 			<a href="{{route('posts.create')}}" class="button">Create Post</a>
@@ -19,7 +19,8 @@
 				<th>Subtitle</th>
 				<th>Author</th>
 				<th>Posted</th>
-				<th>Content</th>
+				<th>Type</th>
+				<th>Status</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -33,8 +34,23 @@
 					<td class="contentCell">{{$post->subtitle}}</td>
 					<td>{{ $users->where('id', $post->author_id)->first()->name }}</td>
 					<td>{{$post->created_at}} </td>
-					<td class="contentCell">
-						<p>{{ str_limit($post->content, $limit = 40, $end = '...') }}</p>
+					<td>
+						@if ($post->type == 0)
+							Community
+						@elseif ($post->type == 1)
+							Work
+						@else
+							None
+						@endif
+					</td>
+					<td>
+						@if ($post->status == 0)
+							Draft
+						@elseif ($post->status == 1)
+							Published
+						@else
+							None
+						@endif
 					</td>
 					<td>
 						<a href="{{route('posts.show', $post->id)}}" class="button is-small is-outlined">View</a>

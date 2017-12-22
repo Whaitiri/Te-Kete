@@ -3,7 +3,7 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">Create New Role</h1>
+			<h1 class="title customTitle">Create New Role</h1>
 			<h4 class="subtitle"></h4>
 		</div>
 		<div class="buttons is-pulled-right m-r-20">

@@ -13,3 +13,36 @@
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
+
+.homeHeroContainer {
+	background-color: black;
+}
+
+.homeHeroText {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	bottom: auto;
+	right: auto;
+	color: black !important;
+	-webkit-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+	z-index: 2;
+	text-align: center;
+}
+
+.homeHeroText .content, .homeHeroText .content h1 {
+	color: #EEE !important;
+}
+
+.homeHeroText img {
+	left: 50%;
+   z-index: 1;
+}
+
+img.homeHero {
+	width: 100%;
+	opacity: 0.5;
+	min-height: 440px;
+
+}

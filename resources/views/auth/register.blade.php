@@ -5,7 +5,7 @@
       <div class="column is-one-third is-offset-one-third authContainer">
          <div class="card customCard">
             <div class="card-content">
-               <h1 class="title is-heading">Register</h1>
+               <h1 class="title customTitle is-heading">Register</h1>
                   <form action="{{route('register')}}" method="POST" role="form">
                      {{ csrf_field() }}
 

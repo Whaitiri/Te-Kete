@@ -1,30 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="hero is-dark is-bold">
-   <div class="hero-body">
-      <div class="container">
-         <h1 class="title is-logo-font is-size-2">TeKete</h1>
-      </div>
-   </div>
-</section>
 
 <div class="card customCard">
-   <div class="card-image">
-      <img src="{{asset('img/logo_full.png')}}" alt="">
 
-   </div>
    <div class="card-content">
-      <div class="media">
-         <div class="media-left">
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
 
+      <div class="homeHeroText">
+
+         <div class="content">
+            <img src="{{asset('img/logo.png')}}" alt="">
+            <h1 class="title is-1 is-logo-font m-t-0">TeKete</h1>
+            <p class="is-centered">Indigenous Web Development
+            <br>for
+            <br>Small Business & Iwi Groups</p>
          </div>
-
+      </div>
+      <div class="homeHeroContainer">
+         <img class="homeHero is-centered" src="{{asset('img/home-hero.jpg')}}" alt="">
       </div>
 
    </div>
-
 </div>
 
 

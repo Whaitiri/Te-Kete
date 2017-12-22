@@ -3,7 +3,7 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">{{$post->display_name}}</h1>
+			<h1 class="title customTitle">{{$post->display_name}}</h1>
 			<h4 class="subtitle">Edit Posts</h4>
 		</div>
 		<div class="buttons is-pulled-right m-r-20">
@@ -41,6 +41,37 @@
 						      </div>
 							</div>
 
+						</div>
+						<div class="columns">
+							<div class="column is-one-quarter">
+								<div class="field">
+										<label for="type" class="label">Post Type</label>
+										<p class="control">
+											<div class="select">
+											   <select name="type" id="type">
+												  	@if ($post->type == 0)
+														<option value="0" selected>Community Post</option>
+														<option value="1">Work Post</option>
+													@elseif ($post->type == 1)
+														<option value="0">Community Post</option>
+														<option value="1" selected>Work Post</option>
+													@endif
+
+											  </select>
+											</div>
+										</p>
+									</div>
+							</div>
+
+							<div class="column is-one-quarter">
+								<div class="field">
+										<label for="subtitle" class="label">Post Published?</label>
+										<b-switch class="is-inline is-pulled-left" v-model="isSwitchedCustom" name="status" true-value="Yes" false-value="No">
+
+										</b-switch><p class="is-inline is-pulled-left" v-text="isSwitchedCustom"></p><br>
+									</div>
+
+							</div>
 						</div>
 
 						<div class="field">
@@ -81,8 +112,15 @@
 	<script src="{{ URL::to('/vendor/tinymce/js/tinymce/tinymce.min.js')}}"></script>
 	<script>
 		var app = new Vue({
-			el:'#app',
+			el: '#app',
 		  	data: {
+					@if ($post->status == 1)
+						isSwitchedCustom: 'Yes'
+					@elseif ($post->status == 0)
+						isSwitchedCustom: 'No'
+					@endif
+
+
 
 			}
 	  	});

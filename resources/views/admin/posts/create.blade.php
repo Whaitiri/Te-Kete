@@ -3,7 +3,7 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">Create New Post</h1>
+			<h1 class="title customTitle">Create New Post</h1>
 			<h4 class="subtitle"></h4>
 		</div>
 		<div class="buttons is-pulled-right m-r-20">
@@ -27,15 +27,16 @@
 						</div>
 
 						<div class="field">
-									<label for="subtitle" class="label">Post Subtitle</label>
-									<p class="control">
-										<input type="text" class="input" name="subtitle" id="subtitle">
-									</p>
-								</div>
+								<label for="subtitle" class="label">Post Subtitle</label>
+								<p class="control">
+									<input type="text" class="input" name="subtitle" id="subtitle">
+								</p>
+							</div>
+
 
 						<div class="columns">
 
-							<div class="column is-one-half">
+							<div class="column is-one-quarter">
 								<div class="field">
 									<label for="title" class="label">Post Author</label>
 									<p class="control">
@@ -46,13 +47,37 @@
 								</div>
 							</div>
 
-							<div class="column is-one-half">
-														<div class="field">
-							<label for="title" class="label">Post Slug <small><em>(generated from title)</em></small></label>
-							<p class="control">
-								<input type="text" :value="compTitleSlug" class="input" name="titleSlug" disabled>
-							</p>
-						</div>
+							<div class="column is-one-quarter">
+								<div class="field">
+									<label for="title" class="label">Post Slug <small><em>(generated from title)</em></small></label>
+									<p class="control">
+										<input type="text" :value="compTitleSlug" class="input" name="titleSlug" disabled>
+									</p>
+								</div>
+							</div>
+
+							<div class="column is-one-quarter">
+								<div class="field">
+										<label for="type" class="label">Post Type</label>
+										<p class="control">
+											<div class="select">
+											  <select name="type" id="type" value="1">
+												 <option value="0">Community Post</option>
+												 <option value="1">Work Post</option>
+											  </select>
+											</div>
+										</p>
+									</div>
+							</div>
+
+							<div class="column is-one-quarter">
+								<div class="field">
+										<label for="subtitle" class="label">Post Published?</label>
+										<b-switch class="is-inline is-pulled-left" v-model="isSwitchedCustom" name="status" true-value="Yes" false-value="No">
+
+						            </b-switch><p class="is-inline is-pulled-left" v-text="isSwitchedCustom"></p><br>
+									</div>
+
 							</div>
 
 						</div>
@@ -60,12 +85,10 @@
 						<div class="field">
 							<label for="description" class="label">Post Content</label>
 							<p class="control">
-								<textarea type="textarea" class="textarea" name="content" id="content" rows="12">
+								<textarea type="textarea" class="my-editor textarea" name="content" id="content" rows="12">
 								</textarea>
 							</p>
 						</div>
-						<input type="hidden" name="status" id="status" value="1">
-						<input type="hidden" name="type" id="type" value="1">
 						<input type="hidden" name="comment_count" id="comment_count" value="0">
 						<button class="button is-success m-t-10">Create Post</button>
 						<a href="{{ url()->previous() }}" class="button m-t-10">Back</a>
@@ -78,13 +101,15 @@
 @endsection
 
 @section('scripts')
+	<script src="{{ URL::to('/vendor/tinymce/js/tinymce/tinymce.min.js')}}"></script>
 	<script>
 		var app = new Vue({
 			el: '#app',
 		  	data: function(){
 				return {
 					title: '',
-			     	titleSlug: ''
+			     	titleSlug: '',
+					isSwitchedCustom: 'No'
 				};
 			},
 			computed: {
@@ -111,6 +136,43 @@
 				}
 			}
 	  	});
+
+
+
+		var editor_config = {
+		 path_absolute : "/",
+		 selector: "textarea.my-editor",
+		 plugins: [
+			"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+			"searchreplace wordcount visualblocks visualchars code fullscreen",
+			"insertdatetime media nonbreaking save table contextmenu directionality",
+			"emoticons template paste textcolor colorpicker textpattern"
+		 ],
+		 toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+		 relative_urls: false,
+		 file_browser_callback : function(field_name, url, type, win) {
+			var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+			var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+			var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+			if (type == 'image') {
+			  cmsURL = cmsURL + "&type=Images";
+			} else {
+			  cmsURL = cmsURL + "&type=Files";
+			}
+
+			tinyMCE.activeEditor.windowManager.open({
+			  file : cmsURL,
+			  title : 'Upload...',
+			  width : x * 0.8,
+			  height : y * 0.8,
+			  resizable : "yes",
+			  close_previous : "no"
+			});
+		 }
+		};
+
+		tinymce.init(editor_config);
 
 	</script>
 @endsection

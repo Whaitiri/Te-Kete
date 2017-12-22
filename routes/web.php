@@ -15,6 +15,9 @@ Route::get('/customcss', 'StyleController@css');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/community', 'HomeController@community')->name('community');
+Route::get('/work', 'HomeController@work')->name('work');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
 
 

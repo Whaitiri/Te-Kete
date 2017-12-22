@@ -4,11 +4,15 @@
 			<li><a class="m-r-15 {{ Nav::isRoute('admin.dashboard')}}" href="{{route('admin.dashboard')}}">Dashboard</a></li>
 		</ul>
 
-		@permission('update-posts')
+		@permission('update-posts|update-styles')
 			<p class="menu-label ">Content</p>
 			<ul class="menu-list">
-				<li><a class="m-r-15 {{ Nav::isResource('posts')}}" href="{{route('posts.index')}}">Posts</a></li>
-				<li><a class="m-r-15 {{ Nav::isResource('styles')}}" href="{{route('styles.index')}}">Customise</a></li>
+				@permission('create-users')
+					<li><a class="m-r-15 {{ Nav::isResource('posts')}}" href="{{route('posts.index')}}">Posts</a></li>
+				@endpermission
+				@permission('update-styles')
+					<li><a class="m-r-15 {{ Nav::isResource('styles')}}" href="{{route('styles.index')}}">Customise</a></li>
+				@endpermission
 			</ul>
 		@endpermission
 

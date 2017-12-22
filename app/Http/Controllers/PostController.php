@@ -45,7 +45,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-      // dd($request->all());
+   
       //   $this->validate($request, [
       //      'title' => 'required|max:255',
       //      'slug' => 'required|max:255|unique:posts',
@@ -60,7 +60,12 @@ class PostController extends Controller
          $post->subtitle = $request->subtitle;
          $post->content = $request->content;
 
-         $post->status = $request->status;
+         // $post->status = $request->status;
+         if ($request->status == 'on') {
+            $post->status = 1;
+         } else {
+            $post->status = 0;
+         }
          $post->type = $request->type;
          $post->comment_count = $request->comment_count;
 

@@ -3,7 +3,7 @@
 @section('content')
 	<div class="columns m-t-10">
 		<div class="column">
-			<h1 class="title">Manage Permissions</h1>
+			<h1 class="title customTitle">Manage Permissions</h1>
 		</div>
 		<div class="buttons is-pulled-right m-r-20">
 			<a href="{{route('permissions.create')}}" class="button">Create Permission</a>

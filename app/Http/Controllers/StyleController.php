@@ -37,12 +37,15 @@ class StyleController extends Controller
 			}
 		}
 		return redirect()->route('styles.index');
-// customAdmin, customBody, customFooter, customNavbar
+
 	}
 	public function css()
 	{
-		  $styles = Style::all();
-		  return view('admin.styles.css')->withStyles($styles);
+			$styles = Style::all();
+			$contents = View::make('css')->with('styles', $styles);
+			$response = Response::make($contents, 200);
+			$response->header('Content-Type', 'text/css');
+			return $response;
 
 	}
 }
